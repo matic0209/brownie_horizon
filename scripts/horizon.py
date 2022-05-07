@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from brownie import (HDispatcher, HEnv, HEnvFactory, HGateKeeper,
                      HGateKeeperFactory, HPeriod, HPeriodFactory, HToken,
-                     HTokenAggregator, HTokenFactory, TrustList, XRookStream,
-                     accounts)
+                     HTokenAggregator, HTokenFactory, TrustList, accounts,
+                     xRookStream)
 
 gas_strategy = "40 gwei"
 
@@ -17,7 +17,7 @@ def log(text, desc=""):
 
 def xrook_stream():
     account = accounts[-1]
-    stream = XRookStream.deploy(
+    stream = xRookStream.deploy(
         {
             "from": account,
             "gas_price": gas_strategy,
@@ -36,7 +36,7 @@ def env_xrook(stream):
     envfactory = HEnvFactory("0x7A9CBE3AA00dC37205f31E46e65e6D28c1737408")
     log("envfactory address", str(envfactory.address))
 
-    stream = XRookStream(stream.address)
+    stream = xRookStream(stream.address)
     stream_token = stream.target_token()
     tx = envfactory.createHEnv(
         stream_token,
