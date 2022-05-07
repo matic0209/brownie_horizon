@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from brownie import (HDispatcher, HEnv, HEnvFactory, HGateKeeper,
+from brownie import (ERC20Impl, HDispatcher, HEnv, HEnvFactory, HGateKeeper,
                      HGateKeeperFactory, HPeriod, HPeriodFactory, HToken,
                      HTokenAggregator, HTokenFactory, SafeMath, TrustList,
                      accounts, xRookStream)
@@ -209,8 +209,27 @@ def horizon_mkdt(env, stream_token, stream):
             "allow_revert": True,
         },
     )
+    return gatekeeper
+
+
+def deposit(gatekeeper):
+    account = accounts[-1]
+    log("address of account", str(account.address))
+    xrook = ERC20Impl.at("0x8aC32F0a635a0896a8428A9c31fBf1AB06ecf489")
+    tx = xrook.approve(gatekeeper.address,
+                       1000000000000000000000000000000000000000,
+                       {"from": account, "gas_price": gas_strategy,
+                        "gas_limit": 3000000, "allow_revert": True})
+    tx.wait(1)
+
+    tx = gatekeeper.bidFloating(29293118312644590157148,
+                                {"from": account,
+                                 "gas_price": gas_strategy,
+                                 "gas_limit": 3000000, "allow_revert": True})
+    tx.wait(1)
 
 
 def main():
     env, stream_token, stream = env_xrook(xrook_stream())
-    horizon_mkdt(env, stream_token, stream)
+    gatekeeper = horizon_mkdt(env, stream_token, stream)
+    deposit(gatekeeper)
