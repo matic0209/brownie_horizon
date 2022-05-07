@@ -1,0 +1,882 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "pricePerShare",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "30": "contracts/ystream/yvUSDCStream.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/ystream/yvUSDCStream.sol",
+    "exportedSymbols": {
+      "yvUSDCInterface": [
+        7220
+      ],
+      "yvUSDCStream": [
+        7279
+      ]
+    },
+    "id": 7280,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7213,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:30"
+      },
+      {
+        "absolutePath": "contracts/ystream/IYieldStream.sol",
+        "file": "./IYieldStream.sol",
+        "id": 7214,
+        "nodeType": "ImportDirective",
+        "scope": 7280,
+        "sourceUnit": 6813,
+        "src": "34:28:30",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 7220,
+        "linearizedBaseContracts": [
+          7220
+        ],
+        "name": "yvUSDCInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7219,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "pricePerShare",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7215,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "114:2:30"
+            },
+            "returnParameters": {
+              "id": 7218,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7217,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7219,
+                  "src": "137:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7216,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "137:7:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "136:9:30"
+            },
+            "scope": 7220,
+            "src": "92:54:30",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7280,
+        "src": "64:84:30"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7221,
+              "name": "IYieldStream",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6812,
+              "src": "175:12:30",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                "typeString": "contract IYieldStream"
+              }
+            },
+            "id": 7222,
+            "nodeType": "InheritanceSpecifier",
+            "src": "175:12:30"
+          }
+        ],
+        "contractDependencies": [
+          6812
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7279,
+        "linearizedBaseContracts": [
+          7279,
+          6812
+        ],
+        "name": "yvUSDCStream",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 7224,
+            "name": "yvUSDC",
+            "nodeType": "VariableDeclaration",
+            "scope": 7279,
+            "src": "192:22:30",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_yvUSDCInterface_$7220",
+              "typeString": "contract yvUSDCInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 7223,
+              "name": "yvUSDCInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7220,
+              "src": "192:15:30",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_yvUSDCInterface_$7220",
+                "typeString": "contract yvUSDCInterface"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 7237,
+              "nodeType": "Block",
+              "src": "238:113:30",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7229,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7227,
+                      "name": "name",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6791,
+                      "src": "244:4:30",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "797655534443207969656c642073747265616d",
+                      "id": 7228,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "251:21:30",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_17a7d7e6c1b43b85f607b3f46600d072ba2a05c8015d947b6b515e085c6581b1",
+                        "typeString": "literal_string \"yvUSDC yield stream\""
+                      },
+                      "value": "yvUSDC yield stream"
+                    },
+                    "src": "244:28:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 7230,
+                  "nodeType": "ExpressionStatement",
+                  "src": "244:28:30"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7235,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7231,
+                      "name": "yvUSDC",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7224,
+                      "src": "278:6:30",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_yvUSDCInterface_$7220",
+                        "typeString": "contract yvUSDCInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "307861333534463335383239416539373565383530653233653936313562313144613142336443344445",
+                          "id": 7233,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "303:42:30",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          },
+                          "value": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        ],
+                        "id": 7232,
+                        "name": "yvUSDCInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7220,
+                        "src": "287:15:30",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_yvUSDCInterface_$7220_$",
+                          "typeString": "type(contract yvUSDCInterface)"
+                        }
+                      },
+                      "id": 7234,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "287:59:30",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_yvUSDCInterface_$7220",
+                        "typeString": "contract yvUSDCInterface"
+                      }
+                    },
+                    "src": "278:68:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_yvUSDCInterface_$7220",
+                      "typeString": "contract yvUSDCInterface"
+                    }
+                  },
+                  "id": 7236,
+                  "nodeType": "ExpressionStatement",
+                  "src": "278:68:30"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7238,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7225,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "229:2:30"
+            },
+            "returnParameters": {
+              "id": 7226,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "238:0:30"
+            },
+            "scope": 7279,
+            "src": "218:133:30",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7247,
+              "nodeType": "Block",
+              "src": "407:69:30",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "307861333534463335383239416539373565383530653233653936313562313144613142336443344445",
+                        "id": 7244,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "428:42:30",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        "value": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 7243,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "420:7:30",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_$",
+                        "typeString": "type(address)"
+                      },
+                      "typeName": "address"
+                    },
+                    "id": 7245,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "420:51:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "functionReturnParameters": 7242,
+                  "id": 7246,
+                  "nodeType": "Return",
+                  "src": "413:58:30"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7248,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "target_token",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7239,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "376:2:30"
+            },
+            "returnParameters": {
+              "id": 7242,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7241,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7248,
+                  "src": "399:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7240,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "399:7:30",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "398:9:30"
+            },
+            "scope": 7279,
+            "src": "355:121:30",
+            "stateMutability": "view",
+            "superFunction": 6796,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7261,
+              "nodeType": "Block",
+              "src": "535:54:30",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 7259,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 7253,
+                          "name": "yvUSDC",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7224,
+                          "src": "548:6:30",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_yvUSDCInterface_$7220",
+                            "typeString": "contract yvUSDCInterface"
+                          }
+                        },
+                        "id": 7254,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pricePerShare",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 7219,
+                        "src": "548:20:30",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
+                          "typeString": "function () view external returns (uint256)"
+                        }
+                      },
+                      "id": 7255,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "548:22:30",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "31653132",
+                          "id": 7257,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "579:4:30",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1000000000000_by_1",
+                            "typeString": "int_const 1000000000000"
+                          },
+                          "value": "1e12"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_1000000000000_by_1",
+                            "typeString": "int_const 1000000000000"
+                          }
+                        ],
+                        "id": 7256,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "571:7:30",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_uint256_$",
+                          "typeString": "type(uint256)"
+                        },
+                        "typeName": "uint256"
+                      },
+                      "id": 7258,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "571:13:30",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "548:36:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 7252,
+                  "id": 7260,
+                  "nodeType": "Return",
+                  "src": "541:43:30"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7262,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVirtualPrice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7249,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "504:2:30"
+            },
+            "returnParameters": {
+              "id": 7252,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7251,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7262,
+                  "src": "527:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7250,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "527:7:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "526:9:30"
+            },
+            "scope": 7279,
+            "src": "480:109:30",
+            "stateMutability": "view",
+            "superFunction": 6801,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7269,
+              "nodeType": "Block",
+              "src": "642:21:30",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "316536",
+                    "id": 7267,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "655:3:30",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1000000_by_1",
+                      "typeString": "int_const 1000000"
+                    },
+                    "value": "1e6"
+                  },
+                  "functionReturnParameters": 7266,
+                  "id": 7268,
+                  "nodeType": "Return",
+                  "src": "648:10:30"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7270,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDecimal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7263,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "611:2:30"
+            },
+            "returnParameters": {
+              "id": 7266,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7265,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7270,
+                  "src": "634:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7264,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "634:7:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "633:9:30"
+            },
+            "scope": 7279,
+            "src": "592:71:30",
+            "stateMutability": "pure",
+            "superFunction": 6806,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7277,
+              "nodeType": "Block",
+              "src": "722:22:30",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "31653138",
+                    "id": 7275,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "735:4:30",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                      "typeString": "int_const 1000000000000000000"
+                    },
+                    "value": "1e18"
+                  },
+                  "functionReturnParameters": 7274,
+                  "id": 7276,
+                  "nodeType": "Return",
+                  "src": "728:11:30"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7278,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPriceDecimal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7271,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "691:2:30"
+            },
+            "returnParameters": {
+              "id": 7274,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7273,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7278,
+                  "src": "714:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7272,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "714:7:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "713:9:30"
+            },
+            "scope": 7279,
+            "src": "667:77:30",
+            "stateMutability": "pure",
+            "superFunction": 6811,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7280,
+        "src": "150:596:30"
+      }
+    ],
+    "src": "0:747:30"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "petersburg",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.5.10+commit.5a6ea5b1"
+  },
+  "contractName": "yvUSDCInterface",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "methods": {}
+  },
+  "offset": [
+    64,
+    148
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "c0007568f01536a5e4f3d2f7aa84898cbb182810",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"./IYieldStream.sol\";\n\ncontract yvUSDCInterface{\n  function pricePerShare() public view returns(uint256);\n}\n\ncontract yvUSDCStream is IYieldStream{\n\n  yvUSDCInterface yvUSDC;\n  constructor() public{\n    name = \"yvUSDC yield stream\";\n    yvUSDC = yvUSDCInterface(0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE);\n  }\n\n  function target_token() public view returns(address){\n    return address(0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE);\n  }\n\n  function getVirtualPrice() public view returns(uint256){\n    return yvUSDC.pricePerShare()*uint256(1e12);\n  }\n  function getDecimal() public pure returns(uint256){\n    return 1e6;\n  }\n\n  function getPriceDecimal() public pure returns(uint256){\n    return 1e18;\n  }\n}\n",
+  "sourceMap": "",
+  "sourcePath": "contracts/ystream/yvUSDCStream.sol",
+  "type": "contract"
+}

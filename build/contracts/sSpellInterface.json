@@ -1,0 +1,1413 @@
+{
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    }
+  ],
+  "allSourcePaths": {
+    "16": "contracts/erc20/IERC20.sol",
+    "26": "contracts/ystream/sSpellStream.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/ystream/sSpellStream.sol",
+    "exportedSymbols": {
+      "sSpellInterface": [
+        6822
+      ],
+      "sSpellStream": [
+        6904
+      ]
+    },
+    "id": 6905,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6814,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:26"
+      },
+      {
+        "absolutePath": "contracts/erc20/IERC20.sol",
+        "file": "../erc20/IERC20.sol",
+        "id": 6815,
+        "nodeType": "ImportDirective",
+        "scope": 6905,
+        "sourceUnit": 5785,
+        "src": "33:29:26",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/utils/SafeMath.sol",
+        "file": "../utils/SafeMath.sol",
+        "id": 6816,
+        "nodeType": "ImportDirective",
+        "scope": 6905,
+        "sourceUnit": 6659,
+        "src": "63:31:26",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/ystream/IYieldStream.sol",
+        "file": "./IYieldStream.sol",
+        "id": 6817,
+        "nodeType": "ImportDirective",
+        "scope": 6905,
+        "sourceUnit": 6813,
+        "src": "96:28:26",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 6818,
+              "name": "IERC20",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5784,
+              "src": "155:6:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$5784",
+                "typeString": "contract IERC20"
+              }
+            },
+            "id": 6819,
+            "nodeType": "InheritanceSpecifier",
+            "src": "155:6:26"
+          }
+        ],
+        "contractDependencies": [
+          5784
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 6822,
+        "linearizedBaseContracts": [
+          6822,
+          5784
+        ],
+        "name": "sSpellInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 6821,
+            "name": "token",
+            "nodeType": "VariableDeclaration",
+            "scope": 6822,
+            "src": "165:19:26",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$5784",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 6820,
+              "name": "IERC20",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5784,
+              "src": "165:6:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$5784",
+                "typeString": "contract IERC20"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 6905,
+        "src": "127:60:26"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 6823,
+              "name": "IYieldStream",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6812,
+              "src": "214:12:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                "typeString": "contract IYieldStream"
+              }
+            },
+            "id": 6824,
+            "nodeType": "InheritanceSpecifier",
+            "src": "214:12:26"
+          }
+        ],
+        "contractDependencies": [
+          6812
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 6904,
+        "linearizedBaseContracts": [
+          6904,
+          6812
+        ],
+        "name": "sSpellStream",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 6827,
+            "libraryName": {
+              "contractScope": null,
+              "id": 6825,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6658,
+              "src": "236:8:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$6658",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "230:27:26",
+            "typeName": {
+              "id": 6826,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "249:7:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 6829,
+            "name": "sSpell",
+            "nodeType": "VariableDeclaration",
+            "scope": 6904,
+            "src": "260:29:26",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+              "typeString": "contract sSpellInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 6828,
+              "name": "sSpellInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6822,
+              "src": "260:15:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                "typeString": "contract sSpellInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6844,
+              "nodeType": "Block",
+              "src": "314:122:26",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 6834,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 6832,
+                      "name": "name",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6791,
+                      "src": "320:4:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "735370656c6c207969656c642073747265616d",
+                      "id": 6833,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "327:21:26",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_21885fcacfb6b5996868fd4d44ea0b9b87a306ba572924b88a16350040455eb8",
+                        "typeString": "literal_string \"sSpell yield stream\""
+                      },
+                      "value": "sSpell yield stream"
+                    },
+                    "src": "320:28:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 6835,
+                  "nodeType": "ExpressionStatement",
+                  "src": "320:28:26"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 6842,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 6836,
+                      "name": "sSpell",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6829,
+                      "src": "354:6:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                        "typeString": "contract sSpellInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "307832364641336646464236456645386331453639313033614362343034344332364239413130366139",
+                              "id": 6839,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "387:42:26",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              },
+                              "value": "0x26FA3fFFB6EfE8c1E69103aCb4044C26B9A106a9"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            ],
+                            "id": 6838,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "379:7:26",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          "id": 6840,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "379:51:26",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        ],
+                        "id": 6837,
+                        "name": "sSpellInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6822,
+                        "src": "363:15:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_sSpellInterface_$6822_$",
+                          "typeString": "type(contract sSpellInterface)"
+                        }
+                      },
+                      "id": 6841,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "363:68:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                        "typeString": "contract sSpellInterface"
+                      }
+                    },
+                    "src": "354:77:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                      "typeString": "contract sSpellInterface"
+                    }
+                  },
+                  "id": 6843,
+                  "nodeType": "ExpressionStatement",
+                  "src": "354:77:26"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 6845,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6830,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "305:2:26"
+            },
+            "returnParameters": {
+              "id": 6831,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "314:0:26"
+            },
+            "scope": 6904,
+            "src": "294:142:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6854,
+              "nodeType": "Block",
+              "src": "493:33:26",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 6851,
+                        "name": "sSpell",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6829,
+                        "src": "514:6:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                          "typeString": "contract sSpellInterface"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                          "typeString": "contract sSpellInterface"
+                        }
+                      ],
+                      "id": 6850,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "506:7:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_$",
+                        "typeString": "type(address)"
+                      },
+                      "typeName": "address"
+                    },
+                    "id": 6852,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "506:15:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 6849,
+                  "id": 6853,
+                  "nodeType": "Return",
+                  "src": "499:22:26"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 6855,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "target_token",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6846,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "462:2:26"
+            },
+            "returnParameters": {
+              "id": 6849,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6848,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6855,
+                  "src": "485:7:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6847,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "485:7:26",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "484:9:26"
+            },
+            "scope": 6904,
+            "src": "441:85:26",
+            "stateMutability": "view",
+            "superFunction": 6796,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6886,
+              "nodeType": "Block",
+              "src": "585:161:26",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 6864,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 6860,
+                          "name": "sSpell",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6829,
+                          "src": "594:6:26",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                            "typeString": "contract sSpellInterface"
+                          }
+                        },
+                        "id": 6861,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "totalSupply",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 5722,
+                        "src": "594:18:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
+                          "typeString": "function () view external returns (uint256)"
+                        }
+                      },
+                      "id": 6862,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "594:20:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 6863,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "618:1:26",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "594:25:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 6868,
+                  "nodeType": "IfStatement",
+                  "src": "591:52:26",
+                  "trueBody": {
+                    "id": 6867,
+                    "nodeType": "Block",
+                    "src": "620:23:26",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 6865,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "635:1:26",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "functionReturnParameters": 6859,
+                        "id": 6866,
+                        "nodeType": "Return",
+                        "src": "628:8:26"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 6881,
+                            "name": "sSpell",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6829,
+                            "src": "720:6:26",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                              "typeString": "contract sSpellInterface"
+                            }
+                          },
+                          "id": 6882,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "totalSupply",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5722,
+                          "src": "720:18:26",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
+                            "typeString": "function () view external returns (uint256)"
+                          }
+                        },
+                        "id": 6883,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "720:20:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "hexValue": "31653138",
+                            "id": 6878,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "706:4:26",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                              "typeString": "int_const 1000000000000000000"
+                            },
+                            "value": "1e18"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                              "typeString": "int_const 1000000000000000000"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "arguments": [
+                                  {
+                                    "argumentTypes": null,
+                                    "id": 6874,
+                                    "name": "sSpell",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 6829,
+                                    "src": "689:6:26",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                                      "typeString": "contract sSpellInterface"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                                      "typeString": "contract sSpellInterface"
+                                    }
+                                  ],
+                                  "id": 6873,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "nodeType": "ElementaryTypeNameExpression",
+                                  "src": "681:7:26",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_address_$",
+                                    "typeString": "type(address)"
+                                  },
+                                  "typeName": "address"
+                                },
+                                "id": 6875,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "typeConversion",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "681:15:26",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "arguments": [],
+                                "expression": {
+                                  "argumentTypes": [],
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "id": 6869,
+                                    "name": "sSpell",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 6829,
+                                    "src": "656:6:26",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_contract$_sSpellInterface_$6822",
+                                      "typeString": "contract sSpellInterface"
+                                    }
+                                  },
+                                  "id": 6870,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "token",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 6821,
+                                  "src": "656:12:26",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_IERC20_$5784_$",
+                                    "typeString": "function () view external returns (contract IERC20)"
+                                  }
+                                },
+                                "id": 6871,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "functionCall",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "656:14:26",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_IERC20_$5784",
+                                  "typeString": "contract IERC20"
+                                }
+                              },
+                              "id": 6872,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "balanceOf",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 5729,
+                              "src": "656:24:26",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                                "typeString": "function (address) view external returns (uint256)"
+                              }
+                            },
+                            "id": 6876,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "656:41:26",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "id": 6877,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "safeMul",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 6634,
+                          "src": "656:49:26",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_delegatecall_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                            "typeString": "function (uint256,uint256) pure returns (uint256)"
+                          }
+                        },
+                        "id": 6879,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "656:55:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "id": 6880,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "safeDiv",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6657,
+                      "src": "656:63:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                        "typeString": "function (uint256,uint256) pure returns (uint256)"
+                      }
+                    },
+                    "id": 6884,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "656:85:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 6859,
+                  "id": 6885,
+                  "nodeType": "Return",
+                  "src": "649:92:26"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 6887,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVirtualPrice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6856,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "554:2:26"
+            },
+            "returnParameters": {
+              "id": 6859,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6858,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6887,
+                  "src": "577:7:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6857,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "577:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "576:9:26"
+            },
+            "scope": 6904,
+            "src": "530:216:26",
+            "stateMutability": "view",
+            "superFunction": 6801,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6894,
+              "nodeType": "Block",
+              "src": "800:22:26",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "31653138",
+                    "id": 6892,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "813:4:26",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                      "typeString": "int_const 1000000000000000000"
+                    },
+                    "value": "1e18"
+                  },
+                  "functionReturnParameters": 6891,
+                  "id": 6893,
+                  "nodeType": "Return",
+                  "src": "806:11:26"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 6895,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDecimal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6888,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "769:2:26"
+            },
+            "returnParameters": {
+              "id": 6891,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6890,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6895,
+                  "src": "792:7:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6889,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "792:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "791:9:26"
+            },
+            "scope": 6904,
+            "src": "750:72:26",
+            "stateMutability": "pure",
+            "superFunction": 6806,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6902,
+              "nodeType": "Block",
+              "src": "881:22:26",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "31653138",
+                    "id": 6900,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "894:4:26",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                      "typeString": "int_const 1000000000000000000"
+                    },
+                    "value": "1e18"
+                  },
+                  "functionReturnParameters": 6899,
+                  "id": 6901,
+                  "nodeType": "Return",
+                  "src": "887:11:26"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 6903,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPriceDecimal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6896,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "850:2:26"
+            },
+            "returnParameters": {
+              "id": 6899,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6898,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6903,
+                  "src": "873:7:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6897,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "873:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "872:9:26"
+            },
+            "scope": 6904,
+            "src": "826:77:26",
+            "stateMutability": "pure",
+            "superFunction": 6811,
+            "visibility": "public"
+          }
+        ],
+        "scope": 6905,
+        "src": "189:716:26"
+      }
+    ],
+    "src": "0:906:26"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "petersburg",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.5.10+commit.5a6ea5b1"
+  },
+  "contractName": "sSpellInterface",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [
+    "IERC20"
+  ],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "methods": {}
+  },
+  "offset": [
+    127,
+    187
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "fe44b20546af27c01c3fd39cabacae6898ae0b36",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\nimport \"../erc20/IERC20.sol\";\nimport \"../utils/SafeMath.sol\";\n\nimport \"./IYieldStream.sol\";\n\n\ncontract sSpellInterface is IERC20{\n  IERC20 public token;\n}\n\ncontract sSpellStream is IYieldStream{\n  using SafeMath for uint256;\n  sSpellInterface public sSpell;\n\n  constructor() public{\n    name = \"sSpell yield stream\";\n    sSpell = sSpellInterface(address(0x26FA3fFFB6EfE8c1E69103aCb4044C26B9A106a9));\n  }\n\n\n  function target_token() public view returns(address){\n    return address(sSpell);\n  }\n\n  function getVirtualPrice() public view returns(uint256){\n    if(sSpell.totalSupply() == 0){\n      return 0;\n    }\n\n    return sSpell.token().balanceOf(address(sSpell)).safeMul(1e18).safeDiv(sSpell.totalSupply());\n  }\n\n  function getDecimal() public pure returns(uint256){\n    return 1e18;\n  }\n\n  function getPriceDecimal() public pure returns(uint256){\n    return 1e18;\n  }\n}\n",
+  "sourceMap": "",
+  "sourcePath": "contracts/ystream/sSpellStream.sol",
+  "type": "contract"
+}

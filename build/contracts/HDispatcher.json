@@ -1,0 +1,5542 @@
+{
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_token_addr",
+          "type": "address"
+        },
+        {
+          "name": "_yield_stream",
+          "type": "address"
+        }
+      ],
+      "name": "resetYieldStream",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_token_addr",
+          "type": "address"
+        }
+      ],
+      "name": "getYieldStream",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "current_streams",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "token_addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "old_stream",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "new_stream",
+          "type": "address"
+        }
+      ],
+      "name": "YieldStreamChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "allSourcePaths": {
+    "16": "contracts/erc20/IERC20.sol",
+    "17": "contracts/erc20/SafeERC20.sol",
+    "18": "contracts/utils/Address.sol",
+    "21": "contracts/utils/Ownable.sol",
+    "23": "contracts/utils/SafeMath.sol",
+    "25": "contracts/ystream/IYieldStream.sol",
+    "5": "contracts/core/HDispatcher.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/core/HDispatcher.sol",
+    "exportedSymbols": {
+      "HDispatcher": [
+        773
+      ],
+      "HDispatcherFactory": [
+        807
+      ]
+    },
+    "id": 808,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 703,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:5"
+      },
+      {
+        "absolutePath": "contracts/utils/Ownable.sol",
+        "file": "../utils/Ownable.sol",
+        "id": 704,
+        "nodeType": "ImportDirective",
+        "scope": 808,
+        "sourceUnit": 6526,
+        "src": "33:30:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/ystream/IYieldStream.sol",
+        "file": "../ystream/IYieldStream.sol",
+        "id": 705,
+        "nodeType": "ImportDirective",
+        "scope": 808,
+        "sourceUnit": 6813,
+        "src": "64:37:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/utils/Ownable.sol",
+        "file": "../utils/Ownable.sol",
+        "id": 706,
+        "nodeType": "ImportDirective",
+        "scope": 808,
+        "sourceUnit": 6526,
+        "src": "102:30:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/erc20/SafeERC20.sol",
+        "file": "../erc20/SafeERC20.sol",
+        "id": 707,
+        "nodeType": "ImportDirective",
+        "scope": 808,
+        "sourceUnit": 6004,
+        "src": "133:32:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 708,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6525,
+              "src": "191:7:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$6525",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 709,
+            "nodeType": "InheritanceSpecifier",
+            "src": "191:7:5"
+          }
+        ],
+        "contractDependencies": [
+          6525
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 773,
+        "linearizedBaseContracts": [
+          773,
+          6525
+        ],
+        "name": "HDispatcher",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 712,
+            "libraryName": {
+              "contractScope": null,
+              "id": 710,
+              "name": "SafeERC20",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6003,
+              "src": "209:9:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeERC20_$6003",
+                "typeString": "library SafeERC20"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "203:27:5",
+            "typeName": {
+              "contractScope": null,
+              "id": 711,
+              "name": "IERC20",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5784,
+              "src": "223:6:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$5784",
+                "typeString": "contract IERC20"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 716,
+            "name": "current_streams",
+            "nodeType": "VariableDeclaration",
+            "scope": 773,
+            "src": "233:56:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IYieldStream_$6812_$",
+              "typeString": "mapping(address => contract IYieldStream)"
+            },
+            "typeName": {
+              "id": 715,
+              "keyType": {
+                "id": 713,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "242:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "233:33:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IYieldStream_$6812_$",
+                "typeString": "mapping(address => contract IYieldStream)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 714,
+                "name": "IYieldStream",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 6812,
+                "src": "253:12:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                  "typeString": "contract IYieldStream"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 719,
+              "nodeType": "Block",
+              "src": "314:2:5",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 720,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 717,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "305:2:5"
+            },
+            "returnParameters": {
+              "id": 718,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "314:0:5"
+            },
+            "scope": 773,
+            "src": "294:22:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 728,
+            "name": "YieldStreamChanged",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 727,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 722,
+                  "indexed": false,
+                  "name": "token_addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 728,
+                  "src": "345:18:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 721,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "345:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 724,
+                  "indexed": false,
+                  "name": "old_stream",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 728,
+                  "src": "365:18:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 723,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "365:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 726,
+                  "indexed": false,
+                  "name": "new_stream",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 728,
+                  "src": "385:18:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 725,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "385:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "344:60:5"
+            },
+            "src": "320:85:5"
+          },
+          {
+            "body": {
+              "id": 759,
+              "nodeType": "Block",
+              "src": "495:188:5",
+              "statements": [
+                {
+                  "assignments": [
+                    738
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 738,
+                      "name": "old",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 759,
+                      "src": "501:11:5",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 737,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "501:7:5",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 744,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 740,
+                          "name": "current_streams",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 716,
+                          "src": "523:15:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IYieldStream_$6812_$",
+                            "typeString": "mapping(address => contract IYieldStream)"
+                          }
+                        },
+                        "id": 742,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 741,
+                          "name": "_token_addr",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 730,
+                          "src": "539:11:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "523:28:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                          "typeString": "contract IYieldStream"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                          "typeString": "contract IYieldStream"
+                        }
+                      ],
+                      "id": 739,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "515:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_$",
+                        "typeString": "type(address)"
+                      },
+                      "typeName": "address"
+                    },
+                    "id": 743,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "515:37:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "501:51:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 751,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 745,
+                        "name": "current_streams",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 716,
+                        "src": "558:15:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IYieldStream_$6812_$",
+                          "typeString": "mapping(address => contract IYieldStream)"
+                        }
+                      },
+                      "id": 747,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 746,
+                        "name": "_token_addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 730,
+                        "src": "574:11:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "558:28:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                        "typeString": "contract IYieldStream"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 749,
+                          "name": "_yield_stream",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 732,
+                          "src": "602:13:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 748,
+                        "name": "IYieldStream",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6812,
+                        "src": "589:12:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IYieldStream_$6812_$",
+                          "typeString": "type(contract IYieldStream)"
+                        }
+                      },
+                      "id": 750,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "589:27:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                        "typeString": "contract IYieldStream"
+                      }
+                    },
+                    "src": "558:58:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                      "typeString": "contract IYieldStream"
+                    }
+                  },
+                  "id": 752,
+                  "nodeType": "ExpressionStatement",
+                  "src": "558:58:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 754,
+                        "name": "_token_addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 730,
+                        "src": "646:11:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 755,
+                        "name": "old",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 738,
+                        "src": "659:3:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 756,
+                        "name": "_yield_stream",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 732,
+                        "src": "664:13:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 753,
+                      "name": "YieldStreamChanged",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 728,
+                      "src": "627:18:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_address_$returns$__$",
+                        "typeString": "function (address,address,address)"
+                      }
+                    },
+                    "id": 757,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "627:51:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 758,
+                  "nodeType": "EmitStatement",
+                  "src": "622:56:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 760,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 735,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 734,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6488,
+                  "src": "486:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "486:9:5"
+              }
+            ],
+            "name": "resetYieldStream",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 733,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 730,
+                  "name": "_token_addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 760,
+                  "src": "435:19:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 729,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 732,
+                  "name": "_yield_stream",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 760,
+                  "src": "456:21:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 731,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "456:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "434:44:5"
+            },
+            "returnParameters": {
+              "id": 736,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "495:0:5"
+            },
+            "scope": 773,
+            "src": "409:274:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 771,
+              "nodeType": "Block",
+              "src": "766:46:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 767,
+                      "name": "current_streams",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 716,
+                      "src": "779:15:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IYieldStream_$6812_$",
+                        "typeString": "mapping(address => contract IYieldStream)"
+                      }
+                    },
+                    "id": 769,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 768,
+                      "name": "_token_addr",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 762,
+                      "src": "795:11:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "779:28:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                      "typeString": "contract IYieldStream"
+                    }
+                  },
+                  "functionReturnParameters": 766,
+                  "id": 770,
+                  "nodeType": "Return",
+                  "src": "772:35:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 772,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getYieldStream",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 763,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 762,
+                  "name": "_token_addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 772,
+                  "src": "711:19:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 761,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "711:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "710:21:5"
+            },
+            "returnParameters": {
+              "id": 766,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 765,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 772,
+                  "src": "753:12:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                    "typeString": "contract IYieldStream"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 764,
+                    "name": "IYieldStream",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6812,
+                    "src": "753:12:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IYieldStream_$6812",
+                      "typeString": "contract IYieldStream"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "752:14:5"
+            },
+            "scope": 773,
+            "src": "687:125:5",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 808,
+        "src": "167:647:5"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          773
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 807,
+        "linearizedBaseContracts": [
+          807
+        ],
+        "name": "HDispatcherFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 777,
+            "name": "NewHDispatcher",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 776,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 775,
+                  "indexed": false,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 777,
+                  "src": "868:12:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 774,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "868:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "867:14:5"
+            },
+            "src": "847:35:5"
+          },
+          {
+            "body": {
+              "id": 805,
+              "nodeType": "Block",
+              "src": "938:157:5",
+              "statements": [
+                {
+                  "assignments": [
+                    783
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 783,
+                      "name": "dis",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 805,
+                      "src": "946:15:5",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_HDispatcher_$773",
+                        "typeString": "contract HDispatcher"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 782,
+                        "name": "HDispatcher",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 773,
+                        "src": "946:11:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_HDispatcher_$773",
+                          "typeString": "contract HDispatcher"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 787,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 785,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "964:15:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_HDispatcher_$773_$",
+                        "typeString": "function () returns (contract HDispatcher)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 784,
+                        "name": "HDispatcher",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 773,
+                        "src": "968:11:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_HDispatcher_$773",
+                          "typeString": "contract HDispatcher"
+                        }
+                      }
+                    },
+                    "id": 786,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "964:17:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_HDispatcher_$773",
+                      "typeString": "contract HDispatcher"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "946:35:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 791,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7294,
+                          "src": "1011:3:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 792,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1011:10:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 788,
+                        "name": "dis",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 783,
+                        "src": "989:3:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_HDispatcher_$773",
+                          "typeString": "contract HDispatcher"
+                        }
+                      },
+                      "id": 790,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferOwnership",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6500,
+                      "src": "989:21:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address) external"
+                      }
+                    },
+                    "id": 793,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "989:33:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 794,
+                  "nodeType": "ExpressionStatement",
+                  "src": "989:33:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 797,
+                            "name": "dis",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 783,
+                            "src": "1058:3:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_HDispatcher_$773",
+                              "typeString": "contract HDispatcher"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_HDispatcher_$773",
+                              "typeString": "contract HDispatcher"
+                            }
+                          ],
+                          "id": 796,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1050:7:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": "address"
+                        },
+                        "id": 798,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1050:12:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 795,
+                      "name": "NewHDispatcher",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 777,
+                      "src": "1035:14:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 799,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1035:28:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 800,
+                  "nodeType": "EmitStatement",
+                  "src": "1030:33:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 802,
+                        "name": "dis",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 783,
+                        "src": "1086:3:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_HDispatcher_$773",
+                          "typeString": "contract HDispatcher"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_HDispatcher_$773",
+                          "typeString": "contract HDispatcher"
+                        }
+                      ],
+                      "id": 801,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "1078:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_$",
+                        "typeString": "type(address)"
+                      },
+                      "typeName": "address"
+                    },
+                    "id": 803,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1078:12:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 781,
+                  "id": 804,
+                  "nodeType": "Return",
+                  "src": "1071:19:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 806,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createHDispatcher",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 778,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "912:2:5"
+            },
+            "returnParameters": {
+              "id": 781,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 780,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 806,
+                  "src": "930:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 779,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "930:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "929:9:5"
+            },
+            "scope": 807,
+            "src": "886:209:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 808,
+        "src": "816:281:5"
+      }
+    ],
+    "src": "0:1098:5"
+  },
+  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b031916339081178255604051909182917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3506103a6806100616000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80633492efe11461005c5780638b6ea7bb1461008c5780638da5cb5b146100ce5780638f98078a146100d6578063f2fde38b146100fc575b600080fd5b61008a6004803603604081101561007257600080fd5b506001600160a01b0381358116916020013516610122565b005b6100b2600480360360208110156100a257600080fd5b50356001600160a01b03166101f8565b604080516001600160a01b039092168252519081900360200190f35b6100b2610216565b6100b2600480360360208110156100ec57600080fd5b50356001600160a01b0316610225565b61008a6004803603602081101561011257600080fd5b50356001600160a01b0316610240565b6000546001600160a01b03163314610181576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6001600160a01b0380831660008181526001602090815260409182902080548686166001600160a01b031982168117909255835194855290941690830181905282820193909352517f5ca3cf2e647a77864177e9d74033efa63b68153553fca56bd0cd84c4c9e3c49d9181900360600190a1505050565b6001600160a01b039081166000908152600160205260409020541690565b6000546001600160a01b031690565b6001602052600090815260409020546001600160a01b031681565b6000546001600160a01b0316331461029f576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6102a8816102ab565b50565b6001600160a01b0381166102f05760405162461bcd60e51b815260040180806020018281038252602681526020018061034c6026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a72305820e4dd552f8bcaa831f641b6367d55b378016afb9041225f795073b87c0c39547064736f6c634300050a0032",
+  "bytecodeSha1": "b5e50ba42e46aad1767f0f0ec5b581cbcad716da",
+  "compiler": {
+    "evm_version": "petersburg",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.5.10+commit.5a6ea5b1"
+  },
+  "contractName": "HDispatcher",
+  "coverageMap": {
+    "branches": {
+      "16": {},
+      "17": {},
+      "18": {},
+      "21": {
+        "Ownable._transferOwnership": {
+          "8": [
+            1250,
+            1272,
+            true
+          ]
+        }
+      },
+      "23": {},
+      "25": {},
+      "5": {}
+    },
+    "statements": {
+      "16": {},
+      "17": {},
+      "18": {},
+      "21": {
+        "Ownable._transferOwnership": {
+          "5": [
+            1242,
+            1315
+          ],
+          "6": [
+            1325,
+            1377
+          ],
+          "7": [
+            1387,
+            1413
+          ]
+        },
+        "Ownable.owner": {
+          "3": [
+            580,
+            602
+          ]
+        },
+        "Ownable.transferOwnership": {
+          "4": [
+            1041,
+            1069
+          ]
+        }
+      },
+      "23": {},
+      "25": {},
+      "5": {
+        "HDispatcher.getYieldStream": {
+          "2": [
+            772,
+            807
+          ]
+        },
+        "HDispatcher.resetYieldStream": {
+          "0": [
+            558,
+            616
+          ],
+          "1": [
+            622,
+            678
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [
+    "Address",
+    "IERC20",
+    "IYieldStream",
+    "Ownable",
+    "SafeERC20",
+    "SafeMath"
+  ],
+  "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c80633492efe11461005c5780638b6ea7bb1461008c5780638da5cb5b146100ce5780638f98078a146100d6578063f2fde38b146100fc575b600080fd5b61008a6004803603604081101561007257600080fd5b506001600160a01b0381358116916020013516610122565b005b6100b2600480360360208110156100a257600080fd5b50356001600160a01b03166101f8565b604080516001600160a01b039092168252519081900360200190f35b6100b2610216565b6100b2600480360360208110156100ec57600080fd5b50356001600160a01b0316610225565b61008a6004803603602081101561011257600080fd5b50356001600160a01b0316610240565b6000546001600160a01b03163314610181576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6001600160a01b0380831660008181526001602090815260409182902080548686166001600160a01b031982168117909255835194855290941690830181905282820193909352517f5ca3cf2e647a77864177e9d74033efa63b68153553fca56bd0cd84c4c9e3c49d9181900360600190a1505050565b6001600160a01b039081166000908152600160205260409020541690565b6000546001600160a01b031690565b6001602052600090815260409020546001600160a01b031681565b6000546001600160a01b0316331461029f576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6102a8816102ab565b50565b6001600160a01b0381166102f05760405162461bcd60e51b815260040180806020018281038252602681526020018061034c6026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a72305820e4dd552f8bcaa831f641b6367d55b378016afb9041225f795073b87c0c39547064736f6c634300050a0032",
+  "deployedSourceMap": "167:647:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;167:647:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;409:274;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;;;;;409:274:5;;;;;;;;;;:::i;:::-;;687:125;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;687:125:5;-1:-1:-1;;;;;687:125:5;;:::i;:::-;;;;-1:-1:-1;;;;;687:125:5;;;;;;;;;;;;;;523:86:21;;;:::i;233:56:5:-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;233:56:5;-1:-1:-1;;;;;233:56:5;;:::i;969:107:21:-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;969:107:21;-1:-1:-1;;;;;969:107:21;;:::i;409:274:5:-;736:15:21;;-1:-1:-1;;;;;736:15:21;755:10;736:29;728:74;;;;;-1:-1:-1;;;728:74:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;523:28:5;;;501:11;523:28;;;-1:-1:-1;523:28:5;;;;;;;;;;;558:58;;;-1:-1:-1;;;;;;558:58:5;;;;;;;627:51;;;;;523:28;;;627:51;;;;;;;;;;;;;;;;;;;;;;;812:1:21;409:274:5;;:::o;687:125::-;-1:-1:-1;;;;;779:28:5;;;753:12;779:28;;;-1:-1:-1;779:28:5;;;;;;;;687:125::o;523:86:21:-;561:7;587:15;-1:-1:-1;;;;;587:15:21;;523:86::o;233:56:5:-;;;;;;;;;;;;-1:-1:-1;;;;;233:56:5;;:::o;969:107:21:-;736:15;;-1:-1:-1;;;;;736:15:21;755:10;736:29;728:74;;;;;-1:-1:-1;;;728:74:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1041:28;1060:8;1041:18;:28::i;:::-;969:107;:::o;1177:243::-;-1:-1:-1;;;;;1250:22:21;;1242:73;;;;-1:-1:-1;;;1242:73:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1351:15;;;1330:47;;-1:-1:-1;;;;;1330:47:21;;;;1351:15;;;1330:47;;;1387:15;:26;;-1:-1:-1;;;;;;1387:26:21;-1:-1:-1;;;;;1387:26:21;;;;;;;;;;1177:243::o",
+  "language": "Solidity",
+  "natspec": {
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    }
+  },
+  "offset": [
+    167,
+    814
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x3492EFE1 EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x8B6EA7BB EQ PUSH2 0x8C JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xCE JUMPI DUP1 PUSH4 0x8F98078A EQ PUSH2 0xD6 JUMPI DUP1 PUSH4 0xF2FDE38B EQ PUSH2 0xFC JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x8A PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x40 DUP2 LT ISZERO PUSH2 0x72 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 CALLDATALOAD DUP2 AND SWAP2 PUSH1 0x20 ADD CALLDATALOAD AND PUSH2 0x122 JUMP JUMPDEST STOP JUMPDEST PUSH2 0xB2 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0xA2 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x1F8 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP3 AND DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH2 0xB2 PUSH2 0x216 JUMP JUMPDEST PUSH2 0xB2 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0xEC JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x225 JUMP JUMPDEST PUSH2 0x8A PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x112 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x240 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x181 JUMPI PUSH1 0x40 DUP1 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572 PUSH1 0x44 DUP3 ADD MSTORE SWAP1 MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x64 ADD SWAP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP1 DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP1 SLOAD DUP7 DUP7 AND PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT DUP3 AND DUP2 OR SWAP1 SWAP3 SSTORE DUP4 MLOAD SWAP5 DUP6 MSTORE SWAP1 SWAP5 AND SWAP1 DUP4 ADD DUP2 SWAP1 MSTORE DUP3 DUP3 ADD SWAP4 SWAP1 SWAP4 MSTORE MLOAD PUSH32 0x5CA3CF2E647A77864177E9D74033EFA63B68153553FCA56BD0CD84C4C9E3C49D SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 POP POP POP JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 DUP2 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD AND SWAP1 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x29F JUMPI PUSH1 0x40 DUP1 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572 PUSH1 0x44 DUP3 ADD MSTORE SWAP1 MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x64 ADD SWAP1 REVERT JUMPDEST PUSH2 0x2A8 DUP2 PUSH2 0x2AB JUMP JUMPDEST POP JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH2 0x2F0 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP1 PUSH1 0x20 ADD DUP3 DUP2 SUB DUP3 MSTORE PUSH1 0x26 DUP2 MSTORE PUSH1 0x20 ADD DUP1 PUSH2 0x34C PUSH1 0x26 SWAP2 CODECOPY PUSH1 0x40 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP1 DUP6 AND SWAP4 SWAP3 AND SWAP2 PUSH32 0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0 SWAP2 LOG3 PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT AND PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP3 SWAP1 SWAP3 AND SWAP2 SWAP1 SWAP2 OR SWAP1 SSTORE JUMP INVALID 0x4f PUSH24 0x6E61626C653A206E6577206F776E65722069732074686520 PUSH27 0x65726F2061646472657373A265627A7A72305820E4DD552F8BCAA8 BALANCE 0xf6 COINBASE 0xb6 CALLDATASIZE PUSH30 0x55B378016AFB9041225F795073B87C0C39547064736F6C634300050A0032 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "CALLVALUE",
+      "path": "5"
+    },
+    "6": {
+      "op": "DUP1"
+    },
+    "7": {
+      "op": "ISZERO"
+    },
+    "8": {
+      "op": "PUSH2",
+      "value": "0x10"
+    },
+    "11": {
+      "op": "JUMPI"
+    },
+    "12": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "14": {
+      "op": "DUP1"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "REVERT",
+      "path": "5"
+    },
+    "16": {
+      "op": "JUMPDEST"
+    },
+    "17": {
+      "offset": [
+        167,
+        814
+      ],
+      "op": "POP",
+      "path": "5"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "CALLDATASIZE",
+      "path": "5"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "LT",
+      "path": "5"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x57"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPI",
+      "path": "5"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "CALLDATALOAD",
+      "path": "5"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "SHR",
+      "path": "5"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH4",
+      "path": "5",
+      "value": "0x3492EFE1"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "EQ",
+      "path": "5"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x5C"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPI",
+      "path": "5"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH4",
+      "path": "5",
+      "value": "0x8B6EA7BB"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "EQ",
+      "path": "5"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x8C"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPI",
+      "path": "5"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH4",
+      "path": "5",
+      "value": "0x8DA5CB5B"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "EQ",
+      "path": "5"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0xCE"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPI",
+      "path": "5"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "66": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH4",
+      "path": "5",
+      "value": "0x8F98078A"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "EQ",
+      "path": "5"
+    },
+    "72": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0xD6"
+    },
+    "75": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPI",
+      "path": "5"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH4",
+      "path": "5",
+      "value": "0xF2FDE38B"
+    },
+    "82": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "EQ",
+      "path": "5"
+    },
+    "83": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0xFC"
+    },
+    "86": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPI",
+      "path": "5"
+    },
+    "87": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "88": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "90": {
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "91": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        167,
+        814
+      ],
+      "op": "REVERT",
+      "path": "5"
+    },
+    "92": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "93": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x8A"
+    },
+    "96": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x4"
+    },
+    "98": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "99": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "CALLDATASIZE",
+      "path": "5"
+    },
+    "100": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "SUB",
+      "path": "5"
+    },
+    "101": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "103": {
+      "op": "DUP2"
+    },
+    "104": {
+      "op": "LT"
+    },
+    "105": {
+      "op": "ISZERO"
+    },
+    "106": {
+      "op": "PUSH2",
+      "value": "0x72"
+    },
+    "109": {
+      "op": "JUMPI"
+    },
+    "110": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "112": {
+      "op": "DUP1"
+    },
+    "113": {
+      "op": "REVERT"
+    },
+    "114": {
+      "op": "JUMPDEST"
+    },
+    "115": {
+      "op": "POP"
+    },
+    "116": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "118": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "120": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "122": {
+      "op": "SHL"
+    },
+    "123": {
+      "op": "SUB"
+    },
+    "124": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "125": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "CALLDATALOAD",
+      "path": "5"
+    },
+    "126": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "127": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "128": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "SWAP2",
+      "path": "5"
+    },
+    "129": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x20"
+    },
+    "131": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "ADD",
+      "path": "5"
+    },
+    "132": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "CALLDATALOAD",
+      "path": "5"
+    },
+    "133": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "134": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x122"
+    },
+    "137": {
+      "fn": "HDispatcher.resetYieldStream",
+      "jump": "i",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "138": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "139": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "STOP",
+      "path": "5"
+    },
+    "140": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "141": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0xB2"
+    },
+    "144": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x4"
+    },
+    "146": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "147": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "CALLDATASIZE",
+      "path": "5"
+    },
+    "148": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SUB",
+      "path": "5"
+    },
+    "149": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "151": {
+      "op": "DUP2"
+    },
+    "152": {
+      "op": "LT"
+    },
+    "153": {
+      "op": "ISZERO"
+    },
+    "154": {
+      "op": "PUSH2",
+      "value": "0xA2"
+    },
+    "157": {
+      "op": "JUMPI"
+    },
+    "158": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "160": {
+      "op": "DUP1"
+    },
+    "161": {
+      "op": "REVERT"
+    },
+    "162": {
+      "op": "JUMPDEST"
+    },
+    "163": {
+      "op": "POP"
+    },
+    "164": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "CALLDATALOAD",
+      "path": "5"
+    },
+    "165": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "167": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "169": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "171": {
+      "op": "SHL"
+    },
+    "172": {
+      "op": "SUB"
+    },
+    "173": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "174": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x1F8"
+    },
+    "177": {
+      "fn": "HDispatcher.getYieldStream",
+      "jump": "i",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "178": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "179": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "181": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "182": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "183": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "185": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "187": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "189": {
+      "op": "SHL"
+    },
+    "190": {
+      "op": "SUB"
+    },
+    "191": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "192": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SWAP3",
+      "path": "5"
+    },
+    "193": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "194": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "DUP3",
+      "path": "5"
+    },
+    "195": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "196": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "197": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "198": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "199": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "200": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SUB",
+      "path": "5"
+    },
+    "201": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x20"
+    },
+    "203": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "ADD",
+      "path": "5"
+    },
+    "204": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "205": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "RETURN",
+      "path": "5"
+    },
+    "206": {
+      "fn": "Ownable.owner",
+      "offset": [
+        523,
+        609
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "207": {
+      "fn": "Ownable.owner",
+      "offset": [
+        523,
+        609
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0xB2"
+    },
+    "210": {
+      "fn": "Ownable.owner",
+      "offset": [
+        523,
+        609
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x216"
+    },
+    "213": {
+      "fn": "Ownable.owner",
+      "jump": "i",
+      "offset": [
+        523,
+        609
+      ],
+      "op": "JUMP",
+      "path": "21"
+    },
+    "214": {
+      "offset": [
+        233,
+        289
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "215": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0xB2"
+    },
+    "218": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x4"
+    },
+    "220": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "221": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "CALLDATASIZE",
+      "path": "5"
+    },
+    "222": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "SUB",
+      "path": "5"
+    },
+    "223": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "225": {
+      "op": "DUP2"
+    },
+    "226": {
+      "op": "LT"
+    },
+    "227": {
+      "op": "ISZERO"
+    },
+    "228": {
+      "op": "PUSH2",
+      "value": "0xEC"
+    },
+    "231": {
+      "op": "JUMPI"
+    },
+    "232": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "234": {
+      "op": "DUP1"
+    },
+    "235": {
+      "op": "REVERT"
+    },
+    "236": {
+      "op": "JUMPDEST"
+    },
+    "237": {
+      "op": "POP"
+    },
+    "238": {
+      "offset": [
+        233,
+        289
+      ],
+      "op": "CALLDATALOAD",
+      "path": "5"
+    },
+    "239": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "241": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "243": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "245": {
+      "op": "SHL"
+    },
+    "246": {
+      "op": "SUB"
+    },
+    "247": {
+      "offset": [
+        233,
+        289
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "248": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x225"
+    },
+    "251": {
+      "fn": "Ownable.owner",
+      "jump": "i",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "252": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "253": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x8A"
+    },
+    "256": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x4"
+    },
+    "258": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "259": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "CALLDATASIZE",
+      "path": "21"
+    },
+    "260": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "SUB",
+      "path": "21"
+    },
+    "261": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "263": {
+      "op": "DUP2"
+    },
+    "264": {
+      "op": "LT"
+    },
+    "265": {
+      "op": "ISZERO"
+    },
+    "266": {
+      "op": "PUSH2",
+      "value": "0x112"
+    },
+    "269": {
+      "op": "JUMPI"
+    },
+    "270": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "272": {
+      "op": "DUP1"
+    },
+    "273": {
+      "op": "REVERT"
+    },
+    "274": {
+      "op": "JUMPDEST"
+    },
+    "275": {
+      "op": "POP"
+    },
+    "276": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "CALLDATALOAD",
+      "path": "21"
+    },
+    "277": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "279": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "281": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "283": {
+      "op": "SHL"
+    },
+    "284": {
+      "op": "SUB"
+    },
+    "285": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "286": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x240"
+    },
+    "289": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "i",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "JUMP",
+      "path": "21"
+    },
+    "290": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "291": {
+      "offset": [
+        736,
+        751
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x0"
+    },
+    "293": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        736,
+        751
+      ],
+      "op": "SLOAD",
+      "path": "21"
+    },
+    "294": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "296": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "298": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "300": {
+      "op": "SHL"
+    },
+    "301": {
+      "op": "SUB"
+    },
+    "302": {
+      "offset": [
+        736,
+        751
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "303": {
+      "offset": [
+        755,
+        765
+      ],
+      "op": "CALLER",
+      "path": "21"
+    },
+    "304": {
+      "offset": [
+        736,
+        765
+      ],
+      "op": "EQ",
+      "path": "21"
+    },
+    "305": {
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x181"
+    },
+    "308": {
+      "offset": [
+        728,
+        802
+      ],
+      "op": "JUMPI",
+      "path": "21"
+    },
+    "309": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x40"
+    },
+    "311": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "312": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "313": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "317": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "319": {
+      "op": "SHL"
+    },
+    "320": {
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "321": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "322": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x20"
+    },
+    "324": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x4"
+    },
+    "326": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "327": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "328": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "329": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "330": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "331": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x24"
+    },
+    "333": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "334": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "335": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "336": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH32",
+      "path": "21",
+      "value": "0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572"
+    },
+    "369": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x44"
+    },
+    "371": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "372": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "373": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "374": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "375": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "376": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "377": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "378": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "379": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SUB",
+      "path": "21"
+    },
+    "380": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x64"
+    },
+    "382": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "383": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "384": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "REVERT",
+      "path": "21"
+    },
+    "385": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "386": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "388": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "390": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "392": {
+      "op": "SHL"
+    },
+    "393": {
+      "op": "SUB"
+    },
+    "394": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "395": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP4",
+      "path": "5"
+    },
+    "396": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "397": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        501,
+        512
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "399": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "400": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "401": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "402": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "404": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x20"
+    },
+    "406": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "407": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "408": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "409": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "411": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "SWAP2",
+      "path": "5"
+    },
+    "412": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP3",
+      "path": "5"
+    },
+    "413": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "414": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "KECCAK256",
+      "path": "5"
+    },
+    "415": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "DUP1",
+      "path": "5"
+    },
+    "416": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "SLOAD",
+      "path": "5"
+    },
+    "417": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "DUP7",
+      "path": "5",
+      "statement": 0
+    },
+    "418": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "DUP7",
+      "path": "5"
+    },
+    "419": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "420": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "422": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "424": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "426": {
+      "op": "SHL"
+    },
+    "427": {
+      "op": "SUB"
+    },
+    "428": {
+      "op": "NOT"
+    },
+    "429": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "DUP3",
+      "path": "5"
+    },
+    "430": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "431": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "432": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "OR",
+      "path": "5"
+    },
+    "433": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "434": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "SWAP3",
+      "path": "5"
+    },
+    "435": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        558,
+        616
+      ],
+      "op": "SSTORE",
+      "path": "5"
+    },
+    "436": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP4",
+      "path": "5",
+      "statement": 1
+    },
+    "437": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "438": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP5",
+      "path": "5"
+    },
+    "439": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP6",
+      "path": "5"
+    },
+    "440": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "441": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "442": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "SWAP5",
+      "path": "5"
+    },
+    "443": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        523,
+        551
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "444": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "445": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP4",
+      "path": "5"
+    },
+    "446": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "ADD",
+      "path": "5"
+    },
+    "447": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "448": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "449": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "450": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP3",
+      "path": "5"
+    },
+    "451": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP3",
+      "path": "5"
+    },
+    "452": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "ADD",
+      "path": "5"
+    },
+    "453": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP4",
+      "path": "5"
+    },
+    "454": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "455": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP4",
+      "path": "5"
+    },
+    "456": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "457": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "458": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "PUSH32",
+      "path": "5",
+      "value": "0x5CA3CF2E647A77864177E9D74033EFA63B68153553FCA56BD0CD84C4C9E3C49D"
+    },
+    "491": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP2",
+      "path": "5"
+    },
+    "492": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "493": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "494": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SUB",
+      "path": "5"
+    },
+    "495": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x60"
+    },
+    "497": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "ADD",
+      "path": "5"
+    },
+    "498": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "499": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        627,
+        678
+      ],
+      "op": "LOG1",
+      "path": "5"
+    },
+    "500": {
+      "offset": [
+        812,
+        813
+      ],
+      "op": "POP",
+      "path": "21"
+    },
+    "501": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "POP",
+      "path": "5"
+    },
+    "502": {
+      "fn": "HDispatcher.resetYieldStream",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "POP",
+      "path": "5"
+    },
+    "503": {
+      "fn": "HDispatcher.resetYieldStream",
+      "jump": "o",
+      "offset": [
+        409,
+        683
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "504": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "505": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "507": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "509": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "511": {
+      "op": "SHL"
+    },
+    "512": {
+      "op": "SUB"
+    },
+    "513": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "SWAP1",
+      "path": "5",
+      "statement": 2
+    },
+    "514": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "515": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "516": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        753,
+        765
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "518": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "519": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "520": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "521": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "523": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x20"
+    },
+    "525": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "526": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "528": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "529": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "KECCAK256",
+      "path": "5"
+    },
+    "530": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "SLOAD",
+      "path": "5"
+    },
+    "531": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "532": {
+      "fn": "HDispatcher.getYieldStream",
+      "offset": [
+        779,
+        807
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "533": {
+      "fn": "HDispatcher.getYieldStream",
+      "jump": "o",
+      "offset": [
+        687,
+        812
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "534": {
+      "fn": "Ownable.owner",
+      "offset": [
+        523,
+        609
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "535": {
+      "fn": "Ownable.owner",
+      "offset": [
+        561,
+        568
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x0"
+    },
+    "537": {
+      "fn": "Ownable.owner",
+      "offset": [
+        587,
+        602
+      ],
+      "op": "SLOAD",
+      "path": "21",
+      "statement": 3
+    },
+    "538": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "540": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "542": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "544": {
+      "op": "SHL"
+    },
+    "545": {
+      "op": "SUB"
+    },
+    "546": {
+      "fn": "Ownable.owner",
+      "offset": [
+        587,
+        602
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "547": {
+      "fn": "Ownable.owner",
+      "offset": [
+        587,
+        602
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "548": {
+      "fn": "Ownable.owner",
+      "jump": "o",
+      "offset": [
+        523,
+        609
+      ],
+      "op": "JUMP",
+      "path": "21"
+    },
+    "549": {
+      "offset": [
+        233,
+        289
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "550": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x1"
+    },
+    "552": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x20"
+    },
+    "554": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "555": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "557": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "558": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "559": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "560": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "562": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "563": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "KECCAK256",
+      "path": "5"
+    },
+    "564": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "SLOAD",
+      "path": "5"
+    },
+    "565": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "567": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "569": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "571": {
+      "op": "SHL"
+    },
+    "572": {
+      "op": "SUB"
+    },
+    "573": {
+      "offset": [
+        233,
+        289
+      ],
+      "op": "AND",
+      "path": "5"
+    },
+    "574": {
+      "fn": "Ownable.owner",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "575": {
+      "fn": "Ownable.owner",
+      "jump": "o",
+      "offset": [
+        233,
+        289
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "576": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "577": {
+      "offset": [
+        736,
+        751
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x0"
+    },
+    "579": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        736,
+        751
+      ],
+      "op": "SLOAD",
+      "path": "21"
+    },
+    "580": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "582": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "584": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "586": {
+      "op": "SHL"
+    },
+    "587": {
+      "op": "SUB"
+    },
+    "588": {
+      "offset": [
+        736,
+        751
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "589": {
+      "offset": [
+        755,
+        765
+      ],
+      "op": "CALLER",
+      "path": "21"
+    },
+    "590": {
+      "offset": [
+        736,
+        765
+      ],
+      "op": "EQ",
+      "path": "21"
+    },
+    "591": {
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x29F"
+    },
+    "594": {
+      "offset": [
+        728,
+        802
+      ],
+      "op": "JUMPI",
+      "path": "21"
+    },
+    "595": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x40"
+    },
+    "597": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "598": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "599": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "603": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "605": {
+      "op": "SHL"
+    },
+    "606": {
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "607": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "608": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x20"
+    },
+    "610": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x4"
+    },
+    "612": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "613": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "614": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "615": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "616": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "617": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x24"
+    },
+    "619": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "620": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "621": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "622": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH32",
+      "path": "21",
+      "value": "0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572"
+    },
+    "655": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x44"
+    },
+    "657": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "658": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "659": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "660": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "661": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "662": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "663": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "664": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "665": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SUB",
+      "path": "21"
+    },
+    "666": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x64"
+    },
+    "668": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "669": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "670": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "REVERT",
+      "path": "21"
+    },
+    "671": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        728,
+        802
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "672": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1041,
+        1069
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "statement": 4,
+      "value": "0x2A8"
+    },
+    "675": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1060,
+        1068
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "676": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1041,
+        1059
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x2AB"
+    },
+    "679": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "i",
+      "offset": [
+        1041,
+        1069
+      ],
+      "op": "JUMP",
+      "path": "21"
+    },
+    "680": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1041,
+        1069
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "681": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "POP",
+      "path": "21"
+    },
+    "682": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "o",
+      "offset": [
+        969,
+        1076
+      ],
+      "op": "JUMP",
+      "path": "21"
+    },
+    "683": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1177,
+        1420
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "684": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "686": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "688": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "690": {
+      "op": "SHL"
+    },
+    "691": {
+      "op": "SUB"
+    },
+    "692": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1250,
+        1272
+      ],
+      "op": "DUP2",
+      "path": "21",
+      "statement": 5
+    },
+    "693": {
+      "branch": 8,
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1250,
+        1272
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "694": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x2F0"
+    },
+    "697": {
+      "branch": 8,
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "JUMPI",
+      "path": "21"
+    },
+    "698": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x40"
+    },
+    "700": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "701": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "705": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "707": {
+      "op": "SHL"
+    },
+    "708": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "709": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "710": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x4"
+    },
+    "712": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "713": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "714": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "715": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x20"
+    },
+    "717": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "718": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "719": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "720": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "SUB",
+      "path": "21"
+    },
+    "721": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP3",
+      "path": "21"
+    },
+    "722": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "723": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x26"
+    },
+    "725": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP2",
+      "path": "21"
+    },
+    "726": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "MSTORE",
+      "path": "21"
+    },
+    "727": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x20"
+    },
+    "729": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "730": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "731": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH2",
+      "path": "21",
+      "value": "0x34C"
+    },
+    "734": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x26"
+    },
+    "736": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "737": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "CODECOPY",
+      "path": "21"
+    },
+    "738": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x40"
+    },
+    "740": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "ADD",
+      "path": "21"
+    },
+    "741": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "742": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "POP",
+      "path": "21"
+    },
+    "743": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "POP",
+      "path": "21"
+    },
+    "744": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x40"
+    },
+    "746": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "747": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "748": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "749": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "SUB",
+      "path": "21"
+    },
+    "750": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "751": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "REVERT",
+      "path": "21"
+    },
+    "752": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1242,
+        1315
+      ],
+      "op": "JUMPDEST",
+      "path": "21"
+    },
+    "753": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1351,
+        1366
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "statement": 6,
+      "value": "0x0"
+    },
+    "755": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1351,
+        1366
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "756": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1351,
+        1366
+      ],
+      "op": "SLOAD",
+      "path": "21"
+    },
+    "757": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "value": "0x40"
+    },
+    "759": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "MLOAD",
+      "path": "21"
+    },
+    "760": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "762": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "764": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "766": {
+      "op": "SHL"
+    },
+    "767": {
+      "op": "SUB"
+    },
+    "768": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "769": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "DUP6",
+      "path": "21"
+    },
+    "770": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "771": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "SWAP4",
+      "path": "21"
+    },
+    "772": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1351,
+        1366
+      ],
+      "op": "SWAP3",
+      "path": "21"
+    },
+    "773": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1351,
+        1366
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "774": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1351,
+        1366
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "775": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "PUSH32",
+      "path": "21",
+      "value": "0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0"
+    },
+    "808": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "809": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1330,
+        1377
+      ],
+      "op": "LOG3",
+      "path": "21"
+    },
+    "810": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1402
+      ],
+      "op": "PUSH1",
+      "path": "21",
+      "statement": 7,
+      "value": "0x0"
+    },
+    "812": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "DUP1",
+      "path": "21"
+    },
+    "813": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SLOAD",
+      "path": "21"
+    },
+    "814": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "816": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "818": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "820": {
+      "op": "SHL"
+    },
+    "821": {
+      "op": "SUB"
+    },
+    "822": {
+      "op": "NOT"
+    },
+    "823": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "824": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "826": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "828": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "830": {
+      "op": "SHL"
+    },
+    "831": {
+      "op": "SUB"
+    },
+    "832": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP3",
+      "path": "21"
+    },
+    "833": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "834": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP3",
+      "path": "21"
+    },
+    "835": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "AND",
+      "path": "21"
+    },
+    "836": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "837": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "838": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP2",
+      "path": "21"
+    },
+    "839": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "OR",
+      "path": "21"
+    },
+    "840": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SWAP1",
+      "path": "21"
+    },
+    "841": {
+      "fn": "Ownable._transferOwnership",
+      "offset": [
+        1387,
+        1413
+      ],
+      "op": "SSTORE",
+      "path": "21"
+    },
+    "842": {
+      "fn": "Ownable._transferOwnership",
+      "jump": "o",
+      "offset": [
+        1177,
+        1420
+      ],
+      "op": "JUMP",
+      "path": "21"
+    }
+  },
+  "sha1": "67e4227da2357c1b970b031fbf51e75ad69e4fa5",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\nimport \"../utils/Ownable.sol\";\nimport \"../ystream/IYieldStream.sol\";\nimport \"../utils/Ownable.sol\";\nimport \"../erc20/SafeERC20.sol\";\n\ncontract HDispatcher is Ownable{\n\n  using SafeERC20 for IERC20;\n  mapping (address => IYieldStream) public current_streams;\n\n  constructor() public{}\n\n  event YieldStreamChanged(address token_addr, address old_stream, address new_stream);\n\n  function resetYieldStream(address _token_addr, address _yield_stream) public onlyOwner{\n    address old = address(current_streams[_token_addr]);\n    current_streams[_token_addr] = IYieldStream(_yield_stream);\n    emit YieldStreamChanged(_token_addr, old, _yield_stream);\n  }\n\n  function getYieldStream(address _token_addr) public view returns (IYieldStream){\n    return current_streams[_token_addr];\n  }\n}\n\ncontract HDispatcherFactory{\n  event NewHDispatcher(address addr);\n\n  function createHDispatcher() public returns(address){\n      HDispatcher dis = new HDispatcher();\n      dis.transferOwnership(msg.sender);\n      emit NewHDispatcher(address(dis));\n      return address(dis);\n  }\n}\n",
+  "sourceMap": "167:647:5:-;;;294:22;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;315:17:21;355:27;;-1:-1:-1;;;;;;355:27:21;335:10;355:27;;;;;397:43;;335:10;;;;397:43;;315:17;;397:43;281:166;167:647:5;;;;;;",
+  "sourcePath": "contracts/core/HDispatcher.sol",
+  "type": "contract"
+}

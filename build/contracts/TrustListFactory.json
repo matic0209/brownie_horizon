@@ -1,0 +1,4934 @@
+{
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_list",
+          "type": "address[]"
+        }
+      ],
+      "name": "createTrustList",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "list",
+          "type": "address[]"
+        }
+      ],
+      "name": "NewTrustList",
+      "type": "event"
+    }
+  ],
+  "allSourcePaths": {
+    "0": "contracts/AddressList.sol",
+    "19": "contracts/utils/AddressArray.sol",
+    "2": "contracts/TrustList.sol",
+    "21": "contracts/utils/Ownable.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/TrustList.sol",
+    "exportedSymbols": {
+      "TrustList": [
+        308
+      ],
+      "TrustListFactory": [
+        350
+      ]
+    },
+    "id": 351,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 202,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:2"
+      },
+      {
+        "absolutePath": "contracts/AddressList.sol",
+        "file": "./AddressList.sol",
+        "id": 203,
+        "nodeType": "ImportDirective",
+        "scope": 351,
+        "sourceUnit": 144,
+        "src": "34:27:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/utils/Ownable.sol",
+        "file": "./utils/Ownable.sol",
+        "id": 204,
+        "nodeType": "ImportDirective",
+        "scope": 351,
+        "sourceUnit": 6526,
+        "src": "62:29:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 205,
+              "name": "AddressList",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 143,
+              "src": "115:11:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AddressList_$143",
+                "typeString": "contract AddressList"
+              }
+            },
+            "id": 206,
+            "nodeType": "InheritanceSpecifier",
+            "src": "115:11:2"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 207,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6525,
+              "src": "128:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$6525",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 208,
+            "nodeType": "InheritanceSpecifier",
+            "src": "128:7:2"
+          }
+        ],
+        "contractDependencies": [
+          143,
+          6525
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 308,
+        "linearizedBaseContracts": [
+          308,
+          6525,
+          143
+        ],
+        "name": "TrustList",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 212,
+            "name": "AddTrust",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 211,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 210,
+                  "indexed": false,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 212,
+                  "src": "155:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 209,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "155:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "154:14:2"
+            },
+            "src": "140:29:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 216,
+            "name": "RemoveTrust",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 214,
+                  "indexed": false,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 216,
+                  "src": "190:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 213,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "190:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "189:14:2"
+            },
+            "src": "172:32:2"
+          },
+          {
+            "body": {
+              "id": 241,
+              "nodeType": "Block",
+              "src": "251:85:2",
+              "statements": [
+                {
+                  "body": {
+                    "id": 239,
+                    "nodeType": "Block",
+                    "src": "295:37:2",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 234,
+                                "name": "_list",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 219,
+                                "src": "316:5:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                                  "typeString": "address[] memory"
+                                }
+                              },
+                              "id": 236,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 235,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 223,
+                                "src": "322:1:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "316:8:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "id": 233,
+                            "name": "_add_address",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 90,
+                            "src": "303:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                              "typeString": "function (address)"
+                            }
+                          },
+                          "id": 237,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "303:22:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 238,
+                        "nodeType": "ExpressionStatement",
+                        "src": "303:22:2"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 229,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 226,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 223,
+                      "src": "273:1:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 227,
+                        "name": "_list",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 219,
+                        "src": "277:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      },
+                      "id": 228,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "277:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "273:16:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 240,
+                  "initializationExpression": {
+                    "assignments": [
+                      223
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 223,
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 240,
+                        "src": "261:6:2",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 222,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "261:4:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 225,
+                    "initialValue": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 224,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "270:1:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "261:10:2"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 231,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "291:3:2",
+                      "subExpression": {
+                        "argumentTypes": null,
+                        "id": 230,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 223,
+                        "src": "291:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 232,
+                    "nodeType": "ExpressionStatement",
+                    "src": "291:3:2"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "257:75:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 242,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 220,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 219,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 242,
+                  "src": "220:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 217,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "220:7:2",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 218,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "220:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "219:24:2"
+            },
+            "returnParameters": {
+              "id": 221,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "251:0:2"
+            },
+            "scope": 308,
+            "src": "208:128:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 253,
+              "nodeType": "Block",
+              "src": "399:40:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 250,
+                        "name": "addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 244,
+                        "src": "429:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 249,
+                      "name": "is_address_exist",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 67,
+                      "src": "412:16:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                        "typeString": "function (address) view returns (bool)"
+                      }
+                    },
+                    "id": 251,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "412:22:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 248,
+                  "id": 252,
+                  "nodeType": "Return",
+                  "src": "405:29:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 254,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "is_trusted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 245,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 244,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 254,
+                  "src": "360:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 243,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "360:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "359:14:2"
+            },
+            "returnParameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 247,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 254,
+                  "src": "394:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 246,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "394:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "393:6:2"
+            },
+            "scope": 308,
+            "src": "340:99:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 265,
+              "nodeType": "Block",
+              "src": "500:32:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 262,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 256,
+                        "src": "525:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 261,
+                      "name": "get_address",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 46,
+                      "src": "513:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_address_$",
+                        "typeString": "function (uint256) view returns (address)"
+                      }
+                    },
+                    "id": 263,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "513:14:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 260,
+                  "id": 264,
+                  "nodeType": "Return",
+                  "src": "506:21:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 266,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_trusted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 257,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 256,
+                  "name": "i",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 266,
+                  "src": "464:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 255,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "464:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "463:8:2"
+            },
+            "returnParameters": {
+              "id": 260,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 259,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 266,
+                  "src": "492:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 258,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "492:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "491:9:2"
+            },
+            "scope": 308,
+            "src": "443:89:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 274,
+              "nodeType": "Block",
+              "src": "588:35:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 271,
+                      "name": "get_address_num",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 55,
+                      "src": "601:15:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$__$returns$_t_uint256_$",
+                        "typeString": "function () view returns (uint256)"
+                      }
+                    },
+                    "id": 272,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "601:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 270,
+                  "id": 273,
+                  "nodeType": "Return",
+                  "src": "594:24:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 275,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get_trusted_num",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 267,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "560:2:2"
+            },
+            "returnParameters": {
+              "id": 270,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 269,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 275,
+                  "src": "583:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 268,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "583:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "582:6:2"
+            },
+            "scope": 308,
+            "src": "536:87:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 290,
+              "nodeType": "Block",
+              "src": "683:54:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 283,
+                        "name": "addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 277,
+                        "src": "702:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 282,
+                      "name": "_add_address",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 90,
+                      "src": "689:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 284,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "689:18:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 285,
+                  "nodeType": "ExpressionStatement",
+                  "src": "689:18:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 287,
+                        "name": "addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 277,
+                        "src": "727:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 286,
+                      "name": "AddTrust",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 212,
+                      "src": "718:8:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 288,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "718:14:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 289,
+                  "nodeType": "EmitStatement",
+                  "src": "713:19:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 291,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 280,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 279,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6488,
+                  "src": "674:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "674:9:2"
+              }
+            ],
+            "name": "add_trusted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 278,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 277,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 291,
+                  "src": "649:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 276,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "649:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "647:15:2"
+            },
+            "returnParameters": {
+              "id": 281,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "683:0:2"
+            },
+            "scope": 308,
+            "src": "627:110:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 306,
+              "nodeType": "Block",
+              "src": "799:60:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 299,
+                        "name": "addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 293,
+                        "src": "821:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 298,
+                      "name": "_remove_address",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 114,
+                      "src": "805:15:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 300,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "805:21:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 301,
+                  "nodeType": "ExpressionStatement",
+                  "src": "805:21:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 303,
+                        "name": "addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 293,
+                        "src": "849:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 302,
+                      "name": "RemoveTrust",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 216,
+                      "src": "837:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 304,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "837:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 305,
+                  "nodeType": "EmitStatement",
+                  "src": "832:22:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 307,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 296,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 295,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6488,
+                  "src": "790:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "790:9:2"
+              }
+            ],
+            "name": "remove_trusted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 294,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 293,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 307,
+                  "src": "765:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 292,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "765:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "764:14:2"
+            },
+            "returnParameters": {
+              "id": 297,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "799:0:2"
+            },
+            "scope": 308,
+            "src": "741:118:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 351,
+        "src": "93:769:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          308
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 350,
+        "linearizedBaseContracts": [
+          350
+        ],
+        "name": "TrustListFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 315,
+            "name": "NewTrustList",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 314,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 310,
+                  "indexed": true,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 315,
+                  "src": "912:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 309,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "912:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 313,
+                  "indexed": false,
+                  "name": "list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 315,
+                  "src": "934:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 311,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "934:7:2",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 312,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "934:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "911:38:2"
+            },
+            "src": "893:57:2"
+          },
+          {
+            "body": {
+              "id": 348,
+              "nodeType": "Block",
+              "src": "1026:151:2",
+              "statements": [
+                {
+                  "assignments": [
+                    324
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 324,
+                      "name": "tl",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 348,
+                      "src": "1032:12:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_TrustList_$308",
+                        "typeString": "contract TrustList"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 323,
+                        "name": "TrustList",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 308,
+                        "src": "1032:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_TrustList_$308",
+                          "typeString": "contract TrustList"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 329,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 327,
+                        "name": "_list",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 318,
+                        "src": "1061:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      ],
+                      "id": 326,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "1047:13:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_array$_t_address_$dyn_memory_ptr_$returns$_t_contract$_TrustList_$308_$",
+                        "typeString": "function (address[] memory) returns (contract TrustList)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 325,
+                        "name": "TrustList",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 308,
+                        "src": "1051:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_TrustList_$308",
+                          "typeString": "contract TrustList"
+                        }
+                      }
+                    },
+                    "id": 328,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1047:20:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_TrustList_$308",
+                      "typeString": "contract TrustList"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1032:35:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 333,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7294,
+                          "src": "1094:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 334,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1094:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 330,
+                        "name": "tl",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 324,
+                        "src": "1073:2:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_TrustList_$308",
+                          "typeString": "contract TrustList"
+                        }
+                      },
+                      "id": 332,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferOwnership",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6500,
+                      "src": "1073:20:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address) external"
+                      }
+                    },
+                    "id": 335,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1073:32:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 336,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1073:32:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 339,
+                            "name": "tl",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 324,
+                            "src": "1137:2:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_TrustList_$308",
+                              "typeString": "contract TrustList"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_TrustList_$308",
+                              "typeString": "contract TrustList"
+                            }
+                          ],
+                          "id": 338,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1129:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": "address"
+                        },
+                        "id": 340,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1129:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 341,
+                        "name": "_list",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 318,
+                        "src": "1142:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      ],
+                      "id": 337,
+                      "name": "NewTrustList",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 315,
+                      "src": "1116:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_array$_t_address_$dyn_memory_ptr_$returns$__$",
+                        "typeString": "function (address,address[] memory)"
+                      }
+                    },
+                    "id": 342,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1116:32:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 343,
+                  "nodeType": "EmitStatement",
+                  "src": "1111:37:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 345,
+                        "name": "tl",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 324,
+                        "src": "1169:2:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_TrustList_$308",
+                          "typeString": "contract TrustList"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_TrustList_$308",
+                          "typeString": "contract TrustList"
+                        }
+                      ],
+                      "id": 344,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "1161:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_$",
+                        "typeString": "type(address)"
+                      },
+                      "typeName": "address"
+                    },
+                    "id": 346,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1161:11:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 322,
+                  "id": 347,
+                  "nodeType": "Return",
+                  "src": "1154:18:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 349,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createTrustList",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 319,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 318,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 349,
+                  "src": "979:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 316,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "979:7:2",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 317,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "979:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "978:24:2"
+            },
+            "returnParameters": {
+              "id": 322,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 321,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 349,
+                  "src": "1018:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 320,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1018:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1017:9:2"
+            },
+            "scope": 350,
+            "src": "954:223:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 351,
+        "src": "864:315:2"
+      }
+    ],
+    "src": "0:1181:2"
+  },
+  "bytecode": "608060405234801561001057600080fd5b50610c28806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063893c18f114610030575b600080fd5b6100d36004803603602081101561004657600080fd5b81019060208101813564010000000081111561006157600080fd5b82018360208201111561007357600080fd5b8035906020019184602083028401116401000000008311171561009557600080fd5b9190808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152509295506100ef945050505050565b604080516001600160a01b039092168252519081900360200190f35b600080826040516100ff90610246565b6020808252825181830152825182916040830191858201910280838360005b8381101561013657818101518382015260200161011e565b5050505090500192505050604051809103906000f08015801561015d573d6000803e3d6000fd5b506040805163f2fde38b60e01b815233600482015290519192506001600160a01b0383169163f2fde38b9160248082019260009290919082900301818387803b1580156101a957600080fd5b505af11580156101bd573d6000803e3d6000fd5b50505050806001600160a01b03167f53d33f1dd74a8f2957f2334a63a86db2913029c0583f9fc4b8f9d7be8e3b5c69846040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561022d578181015183820152602001610215565b505050509050019250505060405180910390a292915050565b6109a0806102548339019056fe608060405234801561001057600080fd5b506040516109a03803806109a08339818101604052602081101561003357600080fd5b81019080805164010000000081111561004b57600080fd5b8201602081018481111561005e57600080fd5b815185602082028301116401000000008211171561007b57600080fd5b5050600280546001600160a01b0319163390811790915560405191945092508291506000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a35060005b81518110156100fc576100f48282815181106100e157fe5b602002602001015161010360201b60201c565b6001016100c9565b505061018f565b6001600160a01b03811660009081526020819052604090205460ff16156101295761018c565b6001600160a01b0381166000818152602081905260408120805460ff191660019081179091558054808201825591527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b03191690911790555b50565b6108028061019e6000396000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c80638da5cb5b116100715780638da5cb5b146101ef578063aebf2085146101f7578063b29baca814610211578063b902451414610219578063edf26d9b1461023f578063f2fde38b1461025c576100b4565b806313bc2635146100b9578063207f0c7e146100f3578063395dbfae1461011b57806342a6a44a14610173578063493f4f7414610199578063632f751c146101d2575b600080fd5b6100df600480360360208110156100cf57600080fd5b50356001600160a01b0316610282565b604080519115158252519081900360200190f35b6101196004803603602081101561010957600080fd5b50356001600160a01b03166102a0565b005b610123610347565b60408051602080825283518183015283519192839290830191858101910280838360005b8381101561015f578181015183820152602001610147565b505050509050019250505060405180910390f35b6100df6004803603602081101561018957600080fd5b50356001600160a01b03166103a9565b6101b6600480360360208110156101af57600080fd5b50356103ba565b604080516001600160a01b039092168252519081900360200190f35b6101b6600480360360208110156101e857600080fd5b5035610425565b6101b6610430565b6101ff61043f565b60408051918252519081900360200190f35b6101ff610445565b6101196004803603602081101561022f57600080fd5b50356001600160a01b0316610454565b6101b66004803603602081101561025557600080fd5b50356104fb565b6101196004803603602081101561027257600080fd5b50356001600160a01b0316610522565b6001600160a01b031660009081526020819052604090205460ff1690565b6002546001600160a01b031633146102ff576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6103088161058d565b604080516001600160a01b038316815290517f2c27eb7d728b178a557834abfbd27e757695f0ea1d14cd572f591f1cf94d92eb9181900360200190a150565b6060600180548060200260200160405190810160405280929190818152602001828054801561039f57602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610381575b5050505050905090565b60006103b482610282565b92915050565b60015460009082106103fd5760405162461bcd60e51b81526004018080602001828103825260258152602001806107a96025913960400191505060405180910390fd5b6001828154811061040a57fe5b6000918252602090912001546001600160a01b031692915050565b60006103b4826103ba565b6002546001600160a01b031690565b60015490565b600061044f61043f565b905090565b6002546001600160a01b031633146104b3576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6104bc81610616565b604080516001600160a01b038316815290517fd608480613e6362ec5a75ba9d27cec77b0f14e4ef1e63d3a7de338574add29d39181900360200190a150565b6001818154811061050857fe5b6000918252602090912001546001600160a01b0316905081565b6002546001600160a01b03163314610581576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b61058a816106e1565b50565b6001600160a01b03811660009081526020819052604090205460ff16156105b35761058a565b6001600160a01b03166000818152602081905260408120805460ff191660019081179091558054808201825591527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b0319169091179055565b6001600160a01b03811660009081526020819052604090205460ff1661063b5761058a565b6001600160a01b03811660008181526020818152604091829020805460ff19169055815163edefe12d60e01b8152600160048201526024810193909352905173__AddressArray__________________________9263edefe12d926044808301939192829003018186803b1580156106b257600080fd5b505af41580156106c6573d6000803e3d6000fd5b505050506040513d60208110156106dc57600080fd5b505050565b6001600160a01b0381166107265760405162461bcd60e51b81526004018080602001828103825260268152602001806107836026913960400191505060405180910390fd5b6002546040516001600160a01b038084169216907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3600280546001600160a01b0319166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373416464726573734c6973743a6765745f616464726573732c206f7574206f662072616e6765a265627a7a72305820e75148caaefab86d4c6d99ee0d329558c20891a05fbec92dc2b97048881110d564736f6c634300050a0032a265627a7a723058204853fb1a218877e49016a499e32c4bf456659c81d6a67ee7718926da8fe88cff64736f6c634300050a0032",
+  "bytecodeSha1": "0ffee515184265db96986af68e5c87362615d74d",
+  "compiler": {
+    "evm_version": "petersburg",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.5.10+commit.5a6ea5b1"
+  },
+  "contractName": "TrustListFactory",
+  "coverageMap": {
+    "branches": {
+      "0": {},
+      "19": {},
+      "2": {},
+      "21": {}
+    },
+    "statements": {
+      "0": {},
+      "19": {},
+      "2": {
+        "TrustListFactory.createTrustList": {
+          "0": [
+            1073,
+            1105
+          ],
+          "1": [
+            1111,
+            1148
+          ],
+          "2": [
+            1154,
+            1172
+          ]
+        }
+      },
+      "21": {}
+    }
+  },
+  "dependencies": [
+    "AddressArray",
+    "AddressList",
+    "Ownable",
+    "TrustList"
+  ],
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061002b5760003560e01c8063893c18f114610030575b600080fd5b6100d36004803603602081101561004657600080fd5b81019060208101813564010000000081111561006157600080fd5b82018360208201111561007357600080fd5b8035906020019184602083028401116401000000008311171561009557600080fd5b9190808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152509295506100ef945050505050565b604080516001600160a01b039092168252519081900360200190f35b600080826040516100ff90610246565b6020808252825181830152825182916040830191858201910280838360005b8381101561013657818101518382015260200161011e565b5050505090500192505050604051809103906000f08015801561015d573d6000803e3d6000fd5b506040805163f2fde38b60e01b815233600482015290519192506001600160a01b0383169163f2fde38b9160248082019260009290919082900301818387803b1580156101a957600080fd5b505af11580156101bd573d6000803e3d6000fd5b50505050806001600160a01b03167f53d33f1dd74a8f2957f2334a63a86db2913029c0583f9fc4b8f9d7be8e3b5c69846040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561022d578181015183820152602001610215565b505050509050019250505060405180910390a292915050565b6109a0806102548339019056fe608060405234801561001057600080fd5b506040516109a03803806109a08339818101604052602081101561003357600080fd5b81019080805164010000000081111561004b57600080fd5b8201602081018481111561005e57600080fd5b815185602082028301116401000000008211171561007b57600080fd5b5050600280546001600160a01b0319163390811790915560405191945092508291506000907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a35060005b81518110156100fc576100f48282815181106100e157fe5b602002602001015161010360201b60201c565b6001016100c9565b505061018f565b6001600160a01b03811660009081526020819052604090205460ff16156101295761018c565b6001600160a01b0381166000818152602081905260408120805460ff191660019081179091558054808201825591527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b03191690911790555b50565b6108028061019e6000396000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c80638da5cb5b116100715780638da5cb5b146101ef578063aebf2085146101f7578063b29baca814610211578063b902451414610219578063edf26d9b1461023f578063f2fde38b1461025c576100b4565b806313bc2635146100b9578063207f0c7e146100f3578063395dbfae1461011b57806342a6a44a14610173578063493f4f7414610199578063632f751c146101d2575b600080fd5b6100df600480360360208110156100cf57600080fd5b50356001600160a01b0316610282565b604080519115158252519081900360200190f35b6101196004803603602081101561010957600080fd5b50356001600160a01b03166102a0565b005b610123610347565b60408051602080825283518183015283519192839290830191858101910280838360005b8381101561015f578181015183820152602001610147565b505050509050019250505060405180910390f35b6100df6004803603602081101561018957600080fd5b50356001600160a01b03166103a9565b6101b6600480360360208110156101af57600080fd5b50356103ba565b604080516001600160a01b039092168252519081900360200190f35b6101b6600480360360208110156101e857600080fd5b5035610425565b6101b6610430565b6101ff61043f565b60408051918252519081900360200190f35b6101ff610445565b6101196004803603602081101561022f57600080fd5b50356001600160a01b0316610454565b6101b66004803603602081101561025557600080fd5b50356104fb565b6101196004803603602081101561027257600080fd5b50356001600160a01b0316610522565b6001600160a01b031660009081526020819052604090205460ff1690565b6002546001600160a01b031633146102ff576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6103088161058d565b604080516001600160a01b038316815290517f2c27eb7d728b178a557834abfbd27e757695f0ea1d14cd572f591f1cf94d92eb9181900360200190a150565b6060600180548060200260200160405190810160405280929190818152602001828054801561039f57602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610381575b5050505050905090565b60006103b482610282565b92915050565b60015460009082106103fd5760405162461bcd60e51b81526004018080602001828103825260258152602001806107a96025913960400191505060405180910390fd5b6001828154811061040a57fe5b6000918252602090912001546001600160a01b031692915050565b60006103b4826103ba565b6002546001600160a01b031690565b60015490565b600061044f61043f565b905090565b6002546001600160a01b031633146104b3576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6104bc81610616565b604080516001600160a01b038316815290517fd608480613e6362ec5a75ba9d27cec77b0f14e4ef1e63d3a7de338574add29d39181900360200190a150565b6001818154811061050857fe5b6000918252602090912001546001600160a01b0316905081565b6002546001600160a01b03163314610581576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b61058a816106e1565b50565b6001600160a01b03811660009081526020819052604090205460ff16156105b35761058a565b6001600160a01b03166000818152602081905260408120805460ff191660019081179091558054808201825591527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b0319169091179055565b6001600160a01b03811660009081526020819052604090205460ff1661063b5761058a565b6001600160a01b03811660008181526020818152604091829020805460ff19169055815163edefe12d60e01b8152600160048201526024810193909352905173__$95541467927e6d9e0f237d104c07db3aeb$__9263edefe12d926044808301939192829003018186803b1580156106b257600080fd5b505af41580156106c6573d6000803e3d6000fd5b505050506040513d60208110156106dc57600080fd5b505050565b6001600160a01b0381166107265760405162461bcd60e51b81526004018080602001828103825260268152602001806107836026913960400191505060405180910390fd5b6002546040516001600160a01b038084169216907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3600280546001600160a01b0319166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373416464726573734c6973743a6765745f616464726573732c206f7574206f662072616e6765a265627a7a72305820e75148caaefab86d4c6d99ee0d329558c20891a05fbec92dc2b97048881110d564736f6c634300050a0032a265627a7a723058204853fb1a218877e49016a499e32c4bf456659c81d6a67ee7718926da8fe88cff64736f6c634300050a0032",
+  "deployedSourceMap": "864:315:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;864:315:2;;;;;;;;;;;;;;;;;;;954:223;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;954:223:2;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;954:223:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;954:223:2;;;;;;101:9:-1;95:2;81:12;77:21;67:8;63:36;60:51;39:11;25:12;22:29;11:108;8:2;;;132:1;129;122:12;8:2;954:223:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;954:223:2;;-1:-1:-1;954:223:2;;-1:-1:-1;;;;;954:223:2:i;:::-;;;;-1:-1:-1;;;;;954:223:2;;;;;;;;;;;;;;;1018:7;1032:12;1061:5;1047:20;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;1047:20:2;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;1073:32:2;;;-1:-1:-1;;;1073:32:2;;1094:10;1073:32;;;;;;1032:35;;-1:-1:-1;;;;;;1073:20:2;;;;;:32;;;;;-1:-1:-1;;1073:32:2;;;;;;;;-1:-1:-1;1073:20:2;:32;;;5:2:-1;;;;30:1;27;20:12;5:2;1073:32:2;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1073:32:2;;;;1137:2;-1:-1:-1;;;;;1116:32:2;;1142:5;1116:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;1116:32:2;;;;;;;;;;;;;;;;;1169:2;954:223;-1:-1:-1;;954:223:2:o;864:315::-;;;;;;;;:::o",
+  "language": "Solidity",
+  "natspec": {
+    "methods": {}
+  },
+  "offset": [
+    864,
+    1179
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x2B JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x893C18F1 EQ PUSH2 0x30 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0xD3 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x46 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 PUSH1 0x20 DUP2 ADD DUP2 CALLDATALOAD PUSH5 0x100000000 DUP2 GT ISZERO PUSH2 0x61 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP3 ADD DUP4 PUSH1 0x20 DUP3 ADD GT ISZERO PUSH2 0x73 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP1 CALLDATALOAD SWAP1 PUSH1 0x20 ADD SWAP2 DUP5 PUSH1 0x20 DUP4 MUL DUP5 ADD GT PUSH5 0x100000000 DUP4 GT OR ISZERO PUSH2 0x95 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 DUP1 DUP1 PUSH1 0x20 MUL PUSH1 0x20 ADD PUSH1 0x40 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 SWAP4 SWAP3 SWAP2 SWAP1 DUP2 DUP2 MSTORE PUSH1 0x20 ADD DUP4 DUP4 PUSH1 0x20 MUL DUP1 DUP3 DUP5 CALLDATACOPY PUSH1 0x0 SWAP3 ADD SWAP2 SWAP1 SWAP2 MSTORE POP SWAP3 SWAP6 POP PUSH2 0xEF SWAP5 POP POP POP POP POP JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP3 AND DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH1 0x0 DUP1 DUP3 PUSH1 0x40 MLOAD PUSH2 0xFF SWAP1 PUSH2 0x246 JUMP JUMPDEST PUSH1 0x20 DUP1 DUP3 MSTORE DUP3 MLOAD DUP2 DUP4 ADD MSTORE DUP3 MLOAD DUP3 SWAP2 PUSH1 0x40 DUP4 ADD SWAP2 DUP6 DUP3 ADD SWAP2 MUL DUP1 DUP4 DUP4 PUSH1 0x0 JUMPDEST DUP4 DUP2 LT ISZERO PUSH2 0x136 JUMPI DUP2 DUP2 ADD MLOAD DUP4 DUP3 ADD MSTORE PUSH1 0x20 ADD PUSH2 0x11E JUMP JUMPDEST POP POP POP POP SWAP1 POP ADD SWAP3 POP POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 PUSH1 0x0 CREATE DUP1 ISZERO DUP1 ISZERO PUSH2 0x15D JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP PUSH1 0x40 DUP1 MLOAD PUSH4 0xF2FDE38B PUSH1 0xE0 SHL DUP2 MSTORE CALLER PUSH1 0x4 DUP3 ADD MSTORE SWAP1 MLOAD SWAP2 SWAP3 POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND SWAP2 PUSH4 0xF2FDE38B SWAP2 PUSH1 0x24 DUP1 DUP3 ADD SWAP3 PUSH1 0x0 SWAP3 SWAP1 SWAP2 SWAP1 DUP3 SWAP1 SUB ADD DUP2 DUP4 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x1A9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x1BD JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP DUP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH32 0x53D33F1DD74A8F2957F2334A63A86DB2913029C0583F9FC4B8F9D7BE8E3B5C69 DUP5 PUSH1 0x40 MLOAD DUP1 DUP1 PUSH1 0x20 ADD DUP3 DUP2 SUB DUP3 MSTORE DUP4 DUP2 DUP2 MLOAD DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 PUSH1 0x20 MUL DUP1 DUP4 DUP4 PUSH1 0x0 JUMPDEST DUP4 DUP2 LT ISZERO PUSH2 0x22D JUMPI DUP2 DUP2 ADD MLOAD DUP4 DUP3 ADD MSTORE PUSH1 0x20 ADD PUSH2 0x215 JUMP JUMPDEST POP POP POP POP SWAP1 POP ADD SWAP3 POP POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG2 SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH2 0x9A0 DUP1 PUSH2 0x254 DUP4 CODECOPY ADD SWAP1 JUMP INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x40 MLOAD PUSH2 0x9A0 CODESIZE SUB DUP1 PUSH2 0x9A0 DUP4 CODECOPY DUP2 DUP2 ADD PUSH1 0x40 MSTORE PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x33 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 MLOAD PUSH5 0x100000000 DUP2 GT ISZERO PUSH2 0x4B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP3 ADD PUSH1 0x20 DUP2 ADD DUP5 DUP2 GT ISZERO PUSH2 0x5E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP6 PUSH1 0x20 DUP3 MUL DUP4 ADD GT PUSH5 0x100000000 DUP3 GT OR ISZERO PUSH2 0x7B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP POP PUSH1 0x2 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT AND CALLER SWAP1 DUP2 OR SWAP1 SWAP2 SSTORE PUSH1 0x40 MLOAD SWAP2 SWAP5 POP SWAP3 POP DUP3 SWAP2 POP PUSH1 0x0 SWAP1 PUSH32 0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0 SWAP1 DUP3 SWAP1 LOG3 POP PUSH1 0x0 JUMPDEST DUP2 MLOAD DUP2 LT ISZERO PUSH2 0xFC JUMPI PUSH2 0xF4 DUP3 DUP3 DUP2 MLOAD DUP2 LT PUSH2 0xE1 JUMPI INVALID JUMPDEST PUSH1 0x20 MUL PUSH1 0x20 ADD ADD MLOAD PUSH2 0x103 PUSH1 0x20 SHL PUSH1 0x20 SHR JUMP JUMPDEST PUSH1 0x1 ADD PUSH2 0xC9 JUMP JUMPDEST POP POP PUSH2 0x18F JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO PUSH2 0x129 JUMPI PUSH2 0x18C JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 DUP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND PUSH1 0x1 SWAP1 DUP2 OR SWAP1 SWAP2 SSTORE DUP1 SLOAD DUP1 DUP3 ADD DUP3 SSTORE SWAP2 MSTORE PUSH32 0xB10E2D527612073B26EECDFD717E6A320CF44B4AFAC2B0732D9FCBE2B7FA0CF6 ADD DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT AND SWAP1 SWAP2 OR SWAP1 SSTORE JUMPDEST POP JUMP JUMPDEST PUSH2 0x802 DUP1 PUSH2 0x19E PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0xB4 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x8DA5CB5B GT PUSH2 0x71 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0x1EF JUMPI DUP1 PUSH4 0xAEBF2085 EQ PUSH2 0x1F7 JUMPI DUP1 PUSH4 0xB29BACA8 EQ PUSH2 0x211 JUMPI DUP1 PUSH4 0xB9024514 EQ PUSH2 0x219 JUMPI DUP1 PUSH4 0xEDF26D9B EQ PUSH2 0x23F JUMPI DUP1 PUSH4 0xF2FDE38B EQ PUSH2 0x25C JUMPI PUSH2 0xB4 JUMP JUMPDEST DUP1 PUSH4 0x13BC2635 EQ PUSH2 0xB9 JUMPI DUP1 PUSH4 0x207F0C7E EQ PUSH2 0xF3 JUMPI DUP1 PUSH4 0x395DBFAE EQ PUSH2 0x11B JUMPI DUP1 PUSH4 0x42A6A44A EQ PUSH2 0x173 JUMPI DUP1 PUSH4 0x493F4F74 EQ PUSH2 0x199 JUMPI DUP1 PUSH4 0x632F751C EQ PUSH2 0x1D2 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0xDF PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0xCF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x282 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 ISZERO ISZERO DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH2 0x119 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x109 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x2A0 JUMP JUMPDEST STOP JUMPDEST PUSH2 0x123 PUSH2 0x347 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x20 DUP1 DUP3 MSTORE DUP4 MLOAD DUP2 DUP4 ADD MSTORE DUP4 MLOAD SWAP2 SWAP3 DUP4 SWAP3 SWAP1 DUP4 ADD SWAP2 DUP6 DUP2 ADD SWAP2 MUL DUP1 DUP4 DUP4 PUSH1 0x0 JUMPDEST DUP4 DUP2 LT ISZERO PUSH2 0x15F JUMPI DUP2 DUP2 ADD MLOAD DUP4 DUP3 ADD MSTORE PUSH1 0x20 ADD PUSH2 0x147 JUMP JUMPDEST POP POP POP POP SWAP1 POP ADD SWAP3 POP POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xDF PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x189 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x3A9 JUMP JUMPDEST PUSH2 0x1B6 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x1AF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH2 0x3BA JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP3 AND DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH2 0x1B6 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x1E8 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH2 0x425 JUMP JUMPDEST PUSH2 0x1B6 PUSH2 0x430 JUMP JUMPDEST PUSH2 0x1FF PUSH2 0x43F JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH2 0x1FF PUSH2 0x445 JUMP JUMPDEST PUSH2 0x119 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x22F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x454 JUMP JUMPDEST PUSH2 0x1B6 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x255 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH2 0x4FB JUMP JUMPDEST PUSH2 0x119 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x272 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x522 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND SWAP1 JUMP JUMPDEST PUSH1 0x2 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x2FF JUMPI PUSH1 0x40 DUP1 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572 PUSH1 0x44 DUP3 ADD MSTORE SWAP1 MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x64 ADD SWAP1 REVERT JUMPDEST PUSH2 0x308 DUP2 PUSH2 0x58D JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND DUP2 MSTORE SWAP1 MLOAD PUSH32 0x2C27EB7D728B178A557834ABFBD27E757695F0EA1D14CD572F591F1CF94D92EB SWAP2 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 LOG1 POP JUMP JUMPDEST PUSH1 0x60 PUSH1 0x1 DUP1 SLOAD DUP1 PUSH1 0x20 MUL PUSH1 0x20 ADD PUSH1 0x40 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 SWAP3 SWAP2 SWAP1 DUP2 DUP2 MSTORE PUSH1 0x20 ADD DUP3 DUP1 SLOAD DUP1 ISZERO PUSH2 0x39F JUMPI PUSH1 0x20 MUL DUP3 ADD SWAP2 SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 KECCAK256 SWAP1 JUMPDEST DUP2 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 MSTORE PUSH1 0x1 SWAP1 SWAP2 ADD SWAP1 PUSH1 0x20 ADD DUP1 DUP4 GT PUSH2 0x381 JUMPI JUMPDEST POP POP POP POP POP SWAP1 POP SWAP1 JUMP JUMPDEST PUSH1 0x0 PUSH2 0x3B4 DUP3 PUSH2 0x282 JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH1 0x1 SLOAD PUSH1 0x0 SWAP1 DUP3 LT PUSH2 0x3FD JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP1 PUSH1 0x20 ADD DUP3 DUP2 SUB DUP3 MSTORE PUSH1 0x25 DUP2 MSTORE PUSH1 0x20 ADD DUP1 PUSH2 0x7A9 PUSH1 0x25 SWAP2 CODECOPY PUSH1 0x40 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST PUSH1 0x1 DUP3 DUP2 SLOAD DUP2 LT PUSH2 0x40A JUMPI INVALID JUMPDEST PUSH1 0x0 SWAP2 DUP3 MSTORE PUSH1 0x20 SWAP1 SWAP2 KECCAK256 ADD SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH1 0x0 PUSH2 0x3B4 DUP3 PUSH2 0x3BA JUMP JUMPDEST PUSH1 0x2 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 JUMP JUMPDEST PUSH1 0x1 SLOAD SWAP1 JUMP JUMPDEST PUSH1 0x0 PUSH2 0x44F PUSH2 0x43F JUMP JUMPDEST SWAP1 POP SWAP1 JUMP JUMPDEST PUSH1 0x2 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x4B3 JUMPI PUSH1 0x40 DUP1 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572 PUSH1 0x44 DUP3 ADD MSTORE SWAP1 MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x64 ADD SWAP1 REVERT JUMPDEST PUSH2 0x4BC DUP2 PUSH2 0x616 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND DUP2 MSTORE SWAP1 MLOAD PUSH32 0xD608480613E6362EC5A75BA9D27CEC77B0F14E4EF1E63D3A7DE338574ADD29D3 SWAP2 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 LOG1 POP JUMP JUMPDEST PUSH1 0x1 DUP2 DUP2 SLOAD DUP2 LT PUSH2 0x508 JUMPI INVALID JUMPDEST PUSH1 0x0 SWAP2 DUP3 MSTORE PUSH1 0x20 SWAP1 SWAP2 KECCAK256 ADD SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 POP DUP2 JUMP JUMPDEST PUSH1 0x2 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x581 JUMPI PUSH1 0x40 DUP1 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572 PUSH1 0x44 DUP3 ADD MSTORE SWAP1 MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x64 ADD SWAP1 REVERT JUMPDEST PUSH2 0x58A DUP2 PUSH2 0x6E1 JUMP JUMPDEST POP JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO PUSH2 0x5B3 JUMPI PUSH2 0x58A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 DUP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND PUSH1 0x1 SWAP1 DUP2 OR SWAP1 SWAP2 SSTORE DUP1 SLOAD DUP1 DUP3 ADD DUP3 SSTORE SWAP2 MSTORE PUSH32 0xB10E2D527612073B26EECDFD717E6A320CF44B4AFAC2B0732D9FCBE2B7FA0CF6 ADD DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT AND SWAP1 SWAP2 OR SWAP1 SSTORE JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND PUSH2 0x63B JUMPI PUSH2 0x58A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x20 DUP2 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND SWAP1 SSTORE DUP2 MLOAD PUSH4 0xEDEFE12D PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x24 DUP2 ADD SWAP4 SWAP1 SWAP4 MSTORE SWAP1 MLOAD PUSH20 0x0 SWAP3 PUSH4 0xEDEFE12D SWAP3 PUSH1 0x44 DUP1 DUP4 ADD SWAP4 SWAP2 SWAP3 DUP3 SWAP1 SUB ADD DUP2 DUP7 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x6B2 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS DELEGATECALL ISZERO DUP1 ISZERO PUSH2 0x6C6 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x6DC JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP POP POP JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH2 0x726 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP1 PUSH1 0x20 ADD DUP3 DUP2 SUB DUP3 MSTORE PUSH1 0x26 DUP2 MSTORE PUSH1 0x20 ADD DUP1 PUSH2 0x783 PUSH1 0x26 SWAP2 CODECOPY PUSH1 0x40 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST PUSH1 0x2 SLOAD PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP1 DUP5 AND SWAP3 AND SWAP1 PUSH32 0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0 SWAP1 PUSH1 0x0 SWAP1 LOG3 PUSH1 0x2 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT AND PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP3 SWAP1 SWAP3 AND SWAP2 SWAP1 SWAP2 OR SWAP1 SSTORE JUMP INVALID 0x4f PUSH24 0x6E61626C653A206E6577206F776E65722069732074686520 PUSH27 0x65726F2061646472657373416464726573734C6973743A6765745F PUSH2 0x6464 PUSH19 0x6573732C206F7574206F662072616E6765A265 PUSH3 0x7A7A72 ADDRESS PC KECCAK256 0xe7 MLOAD 0x48 0xca 0xae STATICCALL 0xb8 PUSH14 0x4C6D99EE0D329558C20891A05FBE 0xc9 0x2d 0xc2 0xb9 PUSH17 0x48881110D564736F6C634300050A0032A2 PUSH6 0x627A7A723058 KECCAK256 0x48 MSTORE8 0xfb BYTE 0x21 DUP9 PUSH24 0xE49016A499E32C4BF456659C81D6A67EE7718926DA8FE88C SELFDESTRUCT PUSH5 0x736F6C6343 STOP SDIV EXP STOP ORIGIN ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "CALLVALUE",
+      "path": "2"
+    },
+    "6": {
+      "op": "DUP1"
+    },
+    "7": {
+      "op": "ISZERO"
+    },
+    "8": {
+      "op": "PUSH2",
+      "value": "0x10"
+    },
+    "11": {
+      "op": "JUMPI"
+    },
+    "12": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "14": {
+      "op": "DUP1"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "16": {
+      "op": "JUMPDEST"
+    },
+    "17": {
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "LT",
+      "path": "2"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x2B"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "CALLDATALOAD",
+      "path": "2"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "SHR",
+      "path": "2"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x893C18F1"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x30"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "46": {
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "47": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "48": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "49": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xD3"
+    },
+    "52": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "54": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "55": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "56": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "57": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "59": {
+      "op": "DUP2"
+    },
+    "60": {
+      "op": "LT"
+    },
+    "61": {
+      "op": "ISZERO"
+    },
+    "62": {
+      "op": "PUSH2",
+      "value": "0x46"
+    },
+    "65": {
+      "op": "JUMPI"
+    },
+    "66": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "68": {
+      "op": "DUP1"
+    },
+    "69": {
+      "op": "REVERT"
+    },
+    "70": {
+      "op": "JUMPDEST"
+    },
+    "71": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "72": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "73": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "74": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "76": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "77": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "78": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "79": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "CALLDATALOAD",
+      "path": "2"
+    },
+    "80": {
+      "op": "PUSH5",
+      "value": "0x100000000"
+    },
+    "86": {
+      "op": "DUP2"
+    },
+    "87": {
+      "op": "GT"
+    },
+    "88": {
+      "op": "ISZERO"
+    },
+    "89": {
+      "op": "PUSH2",
+      "value": "0x61"
+    },
+    "92": {
+      "op": "JUMPI"
+    },
+    "93": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "95": {
+      "op": "DUP1"
+    },
+    "96": {
+      "op": "REVERT"
+    },
+    "97": {
+      "op": "JUMPDEST"
+    },
+    "98": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "99": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "100": {
+      "op": "DUP4"
+    },
+    "101": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "103": {
+      "op": "DUP3"
+    },
+    "104": {
+      "op": "ADD"
+    },
+    "105": {
+      "op": "GT"
+    },
+    "106": {
+      "op": "ISZERO"
+    },
+    "107": {
+      "op": "PUSH2",
+      "value": "0x73"
+    },
+    "110": {
+      "op": "JUMPI"
+    },
+    "111": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "113": {
+      "op": "DUP1"
+    },
+    "114": {
+      "op": "REVERT"
+    },
+    "115": {
+      "op": "JUMPDEST"
+    },
+    "116": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "117": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "CALLDATALOAD",
+      "path": "2"
+    },
+    "118": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "119": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "121": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "122": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "123": {
+      "op": "DUP5"
+    },
+    "124": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "126": {
+      "op": "DUP4"
+    },
+    "127": {
+      "op": "MUL"
+    },
+    "128": {
+      "op": "DUP5"
+    },
+    "129": {
+      "op": "ADD"
+    },
+    "130": {
+      "op": "GT"
+    },
+    "131": {
+      "op": "PUSH5",
+      "value": "0x100000000"
+    },
+    "137": {
+      "op": "DUP4"
+    },
+    "138": {
+      "op": "GT"
+    },
+    "139": {
+      "op": "OR"
+    },
+    "140": {
+      "op": "ISZERO"
+    },
+    "141": {
+      "op": "PUSH2",
+      "value": "0x95"
+    },
+    "144": {
+      "op": "JUMPI"
+    },
+    "145": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "147": {
+      "op": "DUP1"
+    },
+    "148": {
+      "op": "REVERT"
+    },
+    "149": {
+      "op": "JUMPDEST"
+    },
+    "150": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "151": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "152": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "153": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "154": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "156": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MUL",
+      "path": "2"
+    },
+    "157": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "159": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "160": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "162": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "163": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "164": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "165": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "166": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "168": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "169": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "170": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP4",
+      "path": "2"
+    },
+    "171": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "172": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "173": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "174": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "175": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "176": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "177": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "179": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "180": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "181": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "182": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "184": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MUL",
+      "path": "2"
+    },
+    "185": {
+      "op": "DUP1"
+    },
+    "186": {
+      "op": "DUP3"
+    },
+    "187": {
+      "op": "DUP5"
+    },
+    "188": {
+      "op": "CALLDATACOPY"
+    },
+    "189": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "191": {
+      "op": "SWAP3"
+    },
+    "192": {
+      "op": "ADD"
+    },
+    "193": {
+      "op": "SWAP2"
+    },
+    "194": {
+      "op": "SWAP1"
+    },
+    "195": {
+      "op": "SWAP2"
+    },
+    "196": {
+      "op": "MSTORE"
+    },
+    "197": {
+      "op": "POP"
+    },
+    "198": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "199": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP6",
+      "path": "2"
+    },
+    "200": {
+      "op": "POP"
+    },
+    "201": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xEF"
+    },
+    "204": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP5",
+      "path": "2"
+    },
+    "205": {
+      "op": "POP"
+    },
+    "206": {
+      "op": "POP"
+    },
+    "207": {
+      "op": "POP"
+    },
+    "208": {
+      "op": "POP"
+    },
+    "209": {
+      "op": "POP"
+    },
+    "210": {
+      "fn": "TrustListFactory.createTrustList",
+      "jump": "i",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "211": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "212": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "214": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "215": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "216": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "218": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "220": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "222": {
+      "op": "SHL"
+    },
+    "223": {
+      "op": "SUB"
+    },
+    "224": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "225": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "226": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "227": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "228": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "229": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "230": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "231": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "232": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "233": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "234": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "236": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "237": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "238": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "RETURN",
+      "path": "2"
+    },
+    "239": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "240": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1018,
+        1025
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "242": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1032,
+        1044
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "243": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1061,
+        1066
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "244": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "246": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "247": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xFF"
+    },
+    "250": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "251": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x246"
+    },
+    "254": {
+      "fn": "TrustListFactory.createTrustList",
+      "jump": "i",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "255": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "256": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "258": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "259": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "260": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "261": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "262": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "263": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "264": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "265": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "266": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "267": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "268": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "269": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "270": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "271": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "273": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "274": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "275": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "276": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP6",
+      "path": "2"
+    },
+    "277": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "278": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "279": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "280": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MUL",
+      "path": "2"
+    },
+    "281": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "282": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "283": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "284": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "286": {
+      "op": "JUMPDEST"
+    },
+    "287": {
+      "op": "DUP4"
+    },
+    "288": {
+      "op": "DUP2"
+    },
+    "289": {
+      "op": "LT"
+    },
+    "290": {
+      "op": "ISZERO"
+    },
+    "291": {
+      "op": "PUSH2",
+      "value": "0x136"
+    },
+    "294": {
+      "op": "JUMPI"
+    },
+    "295": {
+      "op": "DUP2"
+    },
+    "296": {
+      "op": "DUP2"
+    },
+    "297": {
+      "op": "ADD"
+    },
+    "298": {
+      "op": "MLOAD"
+    },
+    "299": {
+      "op": "DUP4"
+    },
+    "300": {
+      "op": "DUP3"
+    },
+    "301": {
+      "op": "ADD"
+    },
+    "302": {
+      "op": "MSTORE"
+    },
+    "303": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "305": {
+      "op": "ADD"
+    },
+    "306": {
+      "op": "PUSH2",
+      "value": "0x11E"
+    },
+    "309": {
+      "op": "JUMP"
+    },
+    "310": {
+      "op": "JUMPDEST"
+    },
+    "311": {
+      "op": "POP"
+    },
+    "312": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "313": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "314": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "315": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "316": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "317": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "318": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "319": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "320": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "321": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "322": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "324": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "325": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "326": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "327": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "328": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "329": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "331": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "CREATE",
+      "path": "2"
+    },
+    "332": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "333": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1047,
+        1067
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "334": {
+      "op": "DUP1"
+    },
+    "335": {
+      "op": "ISZERO"
+    },
+    "336": {
+      "op": "PUSH2",
+      "value": "0x15D"
+    },
+    "339": {
+      "op": "JUMPI"
+    },
+    "340": {
+      "op": "RETURNDATASIZE"
+    },
+    "341": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "343": {
+      "op": "DUP1"
+    },
+    "344": {
+      "op": "RETURNDATACOPY"
+    },
+    "345": {
+      "op": "RETURNDATASIZE"
+    },
+    "346": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "348": {
+      "op": "REVERT"
+    },
+    "349": {
+      "op": "JUMPDEST"
+    },
+    "350": {
+      "op": "POP"
+    },
+    "351": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 0,
+      "value": "0x40"
+    },
+    "353": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "354": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "355": {
+      "op": "PUSH4",
+      "value": "0xF2FDE38B"
+    },
+    "360": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "362": {
+      "op": "SHL"
+    },
+    "363": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "364": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "365": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1094,
+        1104
+      ],
+      "op": "CALLER",
+      "path": "2"
+    },
+    "366": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "368": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "369": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "370": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "371": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "372": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "373": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1032,
+        1067
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "374": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1032,
+        1067
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "375": {
+      "op": "POP"
+    },
+    "376": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "378": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "380": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "382": {
+      "op": "SHL"
+    },
+    "383": {
+      "op": "SUB"
+    },
+    "384": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1093
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "385": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1093
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "386": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1093
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "387": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1093
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xF2FDE38B"
+    },
+    "392": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1093
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "393": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x24"
+    },
+    "395": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "396": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "397": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "398": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "399": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "401": {
+      "op": "SWAP3"
+    },
+    "402": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "403": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "404": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "405": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "406": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "407": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "408": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "409": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "410": {
+      "op": "DUP4"
+    },
+    "411": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1093
+      ],
+      "op": "DUP8",
+      "path": "2"
+    },
+    "412": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "413": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "EXTCODESIZE",
+      "path": "2"
+    },
+    "414": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "415": {
+      "op": "DUP1"
+    },
+    "416": {
+      "op": "ISZERO"
+    },
+    "417": {
+      "op": "PUSH2",
+      "value": "0x1A9"
+    },
+    "420": {
+      "op": "JUMPI"
+    },
+    "421": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "423": {
+      "op": "DUP1"
+    },
+    "424": {
+      "op": "REVERT"
+    },
+    "425": {
+      "op": "JUMPDEST"
+    },
+    "426": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "427": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "GAS",
+      "path": "2"
+    },
+    "428": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "CALL",
+      "path": "2"
+    },
+    "429": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "430": {
+      "op": "DUP1"
+    },
+    "431": {
+      "op": "ISZERO"
+    },
+    "432": {
+      "op": "PUSH2",
+      "value": "0x1BD"
+    },
+    "435": {
+      "op": "JUMPI"
+    },
+    "436": {
+      "op": "RETURNDATASIZE"
+    },
+    "437": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "439": {
+      "op": "DUP1"
+    },
+    "440": {
+      "op": "RETURNDATACOPY"
+    },
+    "441": {
+      "op": "RETURNDATASIZE"
+    },
+    "442": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "444": {
+      "op": "REVERT"
+    },
+    "445": {
+      "op": "JUMPDEST"
+    },
+    "446": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "447": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "448": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "449": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1073,
+        1105
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "450": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1137,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "2",
+      "statement": 1
+    },
+    "451": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "453": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "455": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "457": {
+      "op": "SHL"
+    },
+    "458": {
+      "op": "SUB"
+    },
+    "459": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "460": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH32",
+      "path": "2",
+      "value": "0x53D33F1DD74A8F2957F2334A63A86DB2913029C0583F9FC4B8F9D7BE8E3B5C69"
+    },
+    "493": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1142,
+        1147
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "494": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "496": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "497": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "498": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "499": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "501": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "502": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "503": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "504": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "505": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "506": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "507": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "508": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "509": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "510": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "511": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "512": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "513": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "515": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "516": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "517": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "518": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "519": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "520": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "521": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "523": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "524": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "525": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "527": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MUL",
+      "path": "2"
+    },
+    "528": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "529": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "530": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "531": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "533": {
+      "op": "JUMPDEST"
+    },
+    "534": {
+      "op": "DUP4"
+    },
+    "535": {
+      "op": "DUP2"
+    },
+    "536": {
+      "op": "LT"
+    },
+    "537": {
+      "op": "ISZERO"
+    },
+    "538": {
+      "op": "PUSH2",
+      "value": "0x22D"
+    },
+    "541": {
+      "op": "JUMPI"
+    },
+    "542": {
+      "op": "DUP2"
+    },
+    "543": {
+      "op": "DUP2"
+    },
+    "544": {
+      "op": "ADD"
+    },
+    "545": {
+      "op": "MLOAD"
+    },
+    "546": {
+      "op": "DUP4"
+    },
+    "547": {
+      "op": "DUP3"
+    },
+    "548": {
+      "op": "ADD"
+    },
+    "549": {
+      "op": "MSTORE"
+    },
+    "550": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "552": {
+      "op": "ADD"
+    },
+    "553": {
+      "op": "PUSH2",
+      "value": "0x215"
+    },
+    "556": {
+      "op": "JUMP"
+    },
+    "557": {
+      "op": "JUMPDEST"
+    },
+    "558": {
+      "op": "POP"
+    },
+    "559": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "560": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "561": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "562": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "563": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "564": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "565": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "566": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "567": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "568": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "569": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "571": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "572": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "573": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "574": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "575": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "576": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1116,
+        1148
+      ],
+      "op": "LOG2",
+      "path": "2"
+    },
+    "577": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        1169,
+        1171
+      ],
+      "op": "SWAP3",
+      "path": "2",
+      "statement": 2
+    },
+    "578": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "579": {
+      "op": "POP"
+    },
+    "580": {
+      "op": "POP"
+    },
+    "581": {
+      "fn": "TrustListFactory.createTrustList",
+      "jump": "o",
+      "offset": [
+        954,
+        1177
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "582": {
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "583": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x9A0"
+    },
+    "586": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "587": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x254"
+    },
+    "590": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "591": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "CODECOPY",
+      "path": "2"
+    },
+    "592": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "593": {
+      "fn": "TrustListFactory.createTrustList",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "594": {
+      "fn": "TrustListFactory.createTrustList",
+      "jump": "o",
+      "offset": [
+        864,
+        1179
+      ],
+      "op": "JUMP",
+      "path": "2"
+    }
+  },
+  "sha1": "bdedf644e3eff4d4571d22e0438c8dcdf906760f",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"./AddressList.sol\";\nimport \"./utils/Ownable.sol\";\n\ncontract TrustList is AddressList, Ownable{\n\n  event AddTrust(address addr);\n  event RemoveTrust(address addr);\n\n  constructor(address[] memory _list) public {\n    for(uint i = 0; i < _list.length; i++){\n      _add_address(_list[i]);\n    }\n  }\n\n  function is_trusted(address addr) public view returns(bool){\n    return is_address_exist(addr);\n  }\n\n  function get_trusted(uint i) public view returns(address){\n    return get_address(i);\n  }\n\n  function get_trusted_num() public view returns(uint){\n    return get_address_num();\n  }\n\n  function add_trusted( address addr) public\n    onlyOwner{\n    _add_address(addr);\n    emit AddTrust(addr);\n  }\n\n  function remove_trusted(address addr) public\n    onlyOwner{\n    _remove_address(addr);\n    emit RemoveTrust(addr);\n  }\n\n}\n\ncontract TrustListFactory{\n  event NewTrustList(address indexed addr, address[] list);\n\n  function createTrustList(address[] memory _list) public returns(address){\n    TrustList tl = new TrustList(_list);\n    tl.transferOwnership(msg.sender);\n    emit NewTrustList(address(tl), _list);\n    return address(tl);\n  }\n}\n\n",
+  "sourceMap": "864:315:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;864:315:2;;;;;;;",
+  "sourcePath": "contracts/TrustList.sol",
+  "type": "contract"
+}
