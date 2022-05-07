@@ -222,7 +222,7 @@ def deposit(gatekeeper):
                         "gas_limit": 3000000, "allow_revert": True})
     tx.wait(1)
 
-    tx = gatekeeper.bidFloating(29293118312644590157148,
+    tx = gatekeeper.bidFloating(8165670269296418632511,
                                 {"from": account,
                                  "gas_price": gas_strategy,
                                  "gas_limit": 3000000, "allow_revert": True})

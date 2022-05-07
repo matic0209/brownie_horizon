@@ -39,7 +39,7 @@ networks:
         cmd_settings:
             gas_limit: 12000000000000
             unlock:
-              - 0xd868eecc0e1c372182e15740de653ff87d19ab8f # rich man
+              - 0x4B96B541C1B7567157FB7B278bdE2A8acE8E9FdF # rich man
               - 0xe6700bf1283f66fbfcfc0a6eae3a5f939b3e2431 # DAO's upgratable Agent
     ganache:
         fee: 100000000000000000
