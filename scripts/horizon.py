@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from brownie import (HDispatcher, HEnv, HEnvFactory, HGateKeeper,
                      HGateKeeperFactory, HPeriod, HPeriodFactory, HToken,
-                     HTokenAggregator, HTokenFactory, TrustList, accounts,
-                     xRookStream)
+                     HTokenAggregator, HTokenFactory, SafeMath, TrustList,
+                     accounts, xRookStream)
 
 gas_strategy = "40 gwei"
 
@@ -17,6 +17,7 @@ def log(text, desc=""):
 
 def xrook_stream():
     account = accounts[-1]
+    SafeMath("0x071108Ad85d7a766B41E0f5e5195537A8FC8E74D")
     stream = xRookStream.deploy(
         {
             "from": account,
