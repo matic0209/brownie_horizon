@@ -1,78 +1,213 @@
 #!/usr/bin/python3
-from brownie import  config, network, interface,accounts,HPeriodFactory,HTokenFactory,HGateKeeperFactory
-from brownie.network.gas.strategies import GasNowStrategy
+from brownie import (HDispatcher, HEnv, HEnvFactory, HGateKeeper,
+                     HGateKeeperFactory, HPeriod, HPeriodFactory, HToken,
+                     HTokenAggregator, HTokenFactory, TrustList, XRookStream,
+                     accounts)
 
-from scripts.helpful_scripts import (
-    get_account,
-    get_contract,
-    LOCAL_BLOCKCHAIN_ENVIRONMENTS,
-)
 gas_strategy = "40 gwei"
-def log(text, desc=''):
-    print('\033[32m' + text + '\033[0m' + desc)
 
-def horizon_mkdt():
+
+def log(text, desc=""):
+    print("\033[32m" + text + "\033[0m" + desc)
+
+
+"""
+"""
+
+
+def xrook_stream():
     account = accounts[-1]
+    stream = XRookStream.deploy(
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        }
+    )
+    stream.tx.wait(1)
+    return stream
 
+
+def env_xrook(stream):
+    account = accounts[-1]
     log("address of account", str(account.address))
 
-    start_block = 14477894;//2022-3-29 8 a.m
+    envfactory = HEnvFactory("0x7A9CBE3AA00dC37205f31E46e65e6D28c1737408")
+    log("envfactory address", str(envfactory.address))
 
+    stream = XRookStream(stream.address)
+    stream_token = stream.target_token()
+    tx = envfactory.createHEnv(
+        stream_token,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+    tx.wait(1)
+    env = HEnv.at(tx.events.Created.args.contractAddress)
+    log("env contract address", str(env.address))
+
+    owner = "0x1Ed79CEbC592044fF1e63A7a96dB944DB50e302D"
+    env.changeFeePoolAddr(
+        owner,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+
+    env.changeWithdrawFeeRatio(
+        10000,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+    return env, stream_token, stream
+
+
+def horizon_mkdt(env, stream_token, stream):
+    account = accounts[-1]
+    log("address of account", str(account.address))
+
+    start_block = 14477894
 
     period = 41710
 
-
-    period_factory = HPeriodFactory("0xe4AbFc56AC8b8C98B986916E7EDfe2762408A419")
+    str_add = "0xe4AbFc56AC8b8C98B986916E7EDfe2762408A419"
+    period_factory = HPeriodFactory(str_add)
     token_factory = HTokenFactory("0xFC8D22071FD617066bB94c80A790C76f440453dC")
-    gatekeeper_factory = HGateKeeperFactory("0x6c2da582218384dd956EB9ED49a892F2bA2D6340")
+    gatekeeper_factory = HGateKeeperFactory(
+        "0x6c2da582218384dd956EB9ED49a892F2bA2D6340"
+    )
 
-
-    print(crv.address)
-
-
-
-    # tx = crv.updatePeriodStatus(
-    #                         {"from": account_new, "gas_price": gas_strategy, "gas_limit": 6000000, "allow_revert": True})
-
-    # tx.wait(1)
-
-
-    tx = crv.withdrawInToken(479452,2, 360000000000000000000,
-                            {"from": account, "gas_price": gas_strategy, "gas_limit": 6000000, "allow_revert": True})
-
+    tx = period_factory.createHPeriod(
+        start_block,
+        period,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
     tx.wait(1)
+    longterm = HPeriod.at(tx.events.Created.args.contractAddress)
+    log("longterm contract address", str(longterm.address))
 
+    tx = token_factory.createHToken(
+        "horizon_xRook_1week",
+        "HFxRook1",
+        True,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+    tx.wait(1)
+    float_token = HToken.at(tx.events.Created.args.contractAddress)
+    log("token contract address", str(float_token.address))
+
+    dispatcher = HDispatcher("0x4775D2B1A3f582b3153e8B78a5C5337036D35f54")
+    log("dispatcher address", str(dispatcher.address))
+
+    aggr = HTokenAggregator("0x890c899cd0812F54F33269A41eFA6c041Da35cf3")
+    log("aggr address", str(aggr.address))
+
+    tx = gatekeeper_factory.createGateKeeperForPeriod(
+        env,
+        dispatcher,
+        longterm.address,
+        float_token.address,
+        aggr,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+    tx.wait(1)
+    gatekeeper = HGateKeeper.at(tx.events.Created.args.contractAddress)
+    log("gatekeeper contract address", str(gatekeeper.address))
+
+    ratios = [
+        95890,
+        153424,
+        210958,
+        268493,
+        326027,
+        383561,
+        441095,
+        498630,
+        556164,
+        613698,
+        671232,
+        728767,
+    ]
+    gatekeeper.resetSupportRatios(
+        ratios,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+
+    fee_pool_addr = "0x1Ed79CEbC592044fF1e63A7a96dB944DB50e302D"
+    gatekeeper.changeYieldPool(
+        fee_pool_addr,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+
+    longterm.transferOwnership(
+        gatekeeper.address,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+
+    float_token.transferOwnership(
+        gatekeeper.address,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
+
+    aggr_tlist = TrustList("0x00c4528C1e8e84d4C57A203573Ef07eE63aDd59A")
+    aggr_tlist.add_trusted(
+        gatekeeper.address,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 6000000,
+            "allow_revert": True,
+        },
+    )
 
 
 def main():
-    horizon_withdraw()
-    #destroy_token("0x6c2da582218384dd956EB9ED49a892F2bA2D6340")
-
-#     log("issue crv")
-
-#    crv_issue()
-
-#     # log("issue usdc")
-#     usdc_issue()
-#     deposit_crv_r()
-#
-
-#     # log("deposit crv")
-#     #
-#    earnReward()
-    #crv_issue("0xe72979D7f270c17B50666A8E79AC88B43e121B0a")
-    # deposit_crv()
-#    deposit_usdc()
-    # changeFeePool("0x6c2da582218384dd956EB9ED49a892F2bA2D6340")
-    # changeHarvestFee(1000)
-
-
-
-
-
-# # log("deposit usdc")
-# #    deposit_usdc()
-
-
-#     # log("deposit usdc")
-#     withdraw_usdc()
+    env, stream_token, stream = env_xrook(xrook_stream())
+    horizon_mkdt(env, stream_token, stream)

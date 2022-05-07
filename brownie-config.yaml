@@ -33,6 +33,7 @@ networks:
         HTokenFactory: "0xFC8D22071FD617066bB94c80A790C76f440453dC"
         HGateKeeperFactory: "0x8Bbb989ba1E62038E43c04Fb7a54c9C58C058C81"
         staker: "0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e"
+        HEnvFactory: ("0x7A9CBE3AA00dC37205f31E46e65e6D28c1737408")
 
         default_balance: 2000000000000000000000000000
         cmd_settings:
@@ -61,7 +62,7 @@ networks:
         vrf_coordinator: "0x8C7382F9D8f56b33781fE506E897a4F1e2d17255"
     ropsten:
         gas_limit: 100000000000000000000000000000000
-        verify: false
+
         crv: "0xB0724732367C6330801B38B0a0268c890d6bA4dB"
         usdc: "0x588C12309DaE98970D1Cca34d73944dD3576666A"
         ef-token: "0x5de1C7CAfdBDD4faec3ef51f8C8c1A91EA20F8C0"
