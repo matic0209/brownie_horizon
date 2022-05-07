@@ -213,7 +213,7 @@ def horizon_mkdt(env, stream_token, stream):
 
 
 def deposit(gatekeeper):
-    account = accounts[-1]
+    account = accounts[-2]
     log("address of account", str(account.address))
     xrook = ERC20Impl.at("0x8aC32F0a635a0896a8428A9c31fBf1AB06ecf489")
     tx = xrook.approve(gatekeeper.address,
