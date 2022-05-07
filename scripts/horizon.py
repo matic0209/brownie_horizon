@@ -49,7 +49,8 @@ def env_xrook(stream):
         },
     )
     tx.wait(1)
-    env = HEnv.at(tx.events.Created.args.contractAddress)
+    env = HEnv.at(tx.return_value)
+
     log("env contract address", str(env.address))
 
     owner = "0x1Ed79CEbC592044fF1e63A7a96dB944DB50e302D"
@@ -102,7 +103,7 @@ def horizon_mkdt(env, stream_token, stream):
         },
     )
     tx.wait(1)
-    longterm = HPeriod.at(tx.events.Created.args.contractAddress)
+    longterm = HPeriod.at(tx.return_value)
     log("longterm contract address", str(longterm.address))
 
     tx = token_factory.createHToken(
@@ -117,7 +118,7 @@ def horizon_mkdt(env, stream_token, stream):
         },
     )
     tx.wait(1)
-    float_token = HToken.at(tx.events.Created.args.contractAddress)
+    float_token = HToken.at(tx.return_value)
     log("token contract address", str(float_token.address))
 
     dispatcher = HDispatcher.at("0x4775D2B1A3f582b3153e8B78a5C5337036D35f54")
@@ -140,7 +141,7 @@ def horizon_mkdt(env, stream_token, stream):
         },
     )
     tx.wait(1)
-    gatekeeper = HGateKeeper.at(tx.events.Created.args.contractAddress)
+    gatekeeper = HGateKeeper.at(tx.return_value)
     log("gatekeeper contract address", str(gatekeeper.address))
 
     ratios = [
