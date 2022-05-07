@@ -89,7 +89,7 @@ def horizon_mkdt(env, stream_token, stream):
     str_add = "0xFC8D22071FD617066bB94c80A790C76f440453dC"
     token_factory = HTokenFactory.at(str_add)
     gatekeeper_factory = HGateKeeperFactory.at(
-        "0x6c2da582218384dd956EB9ED49a892F2bA2D6340"
+        "0x8Bbb989ba1E62038E43c04Fb7a54c9C58C058C81"
     )
 
     tx = period_factory.createHPeriod(
