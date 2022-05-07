@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from brownie import (ERC20Impl, HDispatcher, HEnv, HEnvFactory, HGateKeeper,
+from brownie import (ERC20Base, HDispatcher, HEnv, HEnvFactory, HGateKeeper,
                      HGateKeeperFactory, HPeriod, HPeriodFactory, HToken,
                      HTokenAggregator, HTokenFactory, SafeMath, TrustList,
                      accounts, xRookStream)
@@ -215,7 +215,7 @@ def horizon_mkdt(env, stream_token, stream):
 def deposit(gatekeeper):
     account = accounts[-2]
     log("address of account", str(account.address))
-    xrook = ERC20Impl.at("0x8aC32F0a635a0896a8428A9c31fBf1AB06ecf489")
+    xrook = ERC20Base.at("0x8aC32F0a635a0896a8428A9c31fBf1AB06ecf489")
     tx = xrook.approve(gatekeeper.address,
                        1000000000000000000000000000000000000000,
                        {"from": account, "gas_price": gas_strategy,
