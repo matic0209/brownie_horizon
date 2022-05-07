@@ -37,7 +37,7 @@ def env_xrook(stream):
     envfactory = HEnvFactory.at("0x7A9CBE3AA00dC37205f31E46e65e6D28c1737408")
     log("envfactory address", str(envfactory.address))
 
-    stream = xRookStream(stream.address)
+    stream = xRookStream.at(stream.address)
     stream_token = stream.target_token()
     tx = envfactory.createHEnv(
         stream_token,
