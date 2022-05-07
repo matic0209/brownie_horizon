@@ -124,15 +124,19 @@ def horizon_mkdt(env, stream_token, stream):
     dispatcher = HDispatcher.at("0x4775D2B1A3f582b3153e8B78a5C5337036D35f54")
     log("dispatcher address", str(dispatcher.address))
 
-    dispatcher.resetYieldStream(stream_token, stream.address, {
+    dispatcher.resetYieldStream(
+        stream_token,
+        stream.address,
+        {
             "from": account,
             "gas_price": gas_strategy,
             "gas_limit": 6000000,
             "allow_revert": True,
-        })
+        },
+    )
 
     aggr = HTokenAggregator.at("0x890c899cd0812F54F33269A41eFA6c041Da35cf3")
-    log("aggr address", str(aggr.address))
+    log("aggr new address", str(aggr.address))
 
     tx = gatekeeper_factory.createGateKeeperForPeriod(
         env,
@@ -223,16 +227,27 @@ def deposit(gatekeeper):
     account = accounts[-2]
     log("address of account", str(account.address))
     xrook = ERC20Base.at("0x8aC32F0a635a0896a8428A9c31fBf1AB06ecf489")
-    tx = xrook.approve(gatekeeper.address,
-                       1000000000000000000000000000000000000000,
-                       {"from": account, "gas_price": gas_strategy,
-                        "gas_limit": 3000000, "allow_revert": True})
+    tx = xrook.approve(
+        gatekeeper.address,
+        1000000000000000000000000000000000000000,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 3000000,
+            "allow_revert": True,
+        },
+    )
     tx.wait(1)
 
-    tx = gatekeeper.bidFloating(8165670269296418632511,
-                                {"from": account,
-                                 "gas_price": gas_strategy,
-                                 "gas_limit": 3000000, "allow_revert": True})
+    tx = gatekeeper.bidFloating(
+        8165670269296418632511,
+        {
+            "from": account,
+            "gas_price": gas_strategy,
+            "gas_limit": 3000000,
+            "allow_revert": True,
+        },
+    )
     tx.wait(1)
 
 
