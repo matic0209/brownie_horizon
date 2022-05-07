@@ -17,7 +17,7 @@ def log(text, desc=""):
 
 def xrook_stream():
     account = accounts[-1]
-    SafeMath("0x071108Ad85d7a766B41E0f5e5195537A8FC8E74D")
+    SafeMath.at("0x071108Ad85d7a766B41E0f5e5195537A8FC8E74D")
     stream = xRookStream.deploy(
         {
             "from": account,
@@ -34,7 +34,7 @@ def env_xrook(stream):
     account = accounts[-1]
     log("address of account", str(account.address))
 
-    envfactory = HEnvFactory("0x7A9CBE3AA00dC37205f31E46e65e6D28c1737408")
+    envfactory = HEnvFactory.at("0x7A9CBE3AA00dC37205f31E46e65e6D28c1737408")
     log("envfactory address", str(envfactory.address))
 
     stream = xRookStream(stream.address)
@@ -84,9 +84,10 @@ def horizon_mkdt(env, stream_token, stream):
     period = 41710
 
     str_add = "0xe4AbFc56AC8b8C98B986916E7EDfe2762408A419"
-    period_factory = HPeriodFactory(str_add)
-    token_factory = HTokenFactory("0xFC8D22071FD617066bB94c80A790C76f440453dC")
-    gatekeeper_factory = HGateKeeperFactory(
+    period_factory = HPeriodFactory.at(str_add)
+    str_add = "0xFC8D22071FD617066bB94c80A790C76f440453dC"
+    token_factory = HTokenFactory.at(str_add)
+    gatekeeper_factory = HGateKeeperFactory.at(
         "0x6c2da582218384dd956EB9ED49a892F2bA2D6340"
     )
 
@@ -119,10 +120,10 @@ def horizon_mkdt(env, stream_token, stream):
     float_token = HToken.at(tx.events.Created.args.contractAddress)
     log("token contract address", str(float_token.address))
 
-    dispatcher = HDispatcher("0x4775D2B1A3f582b3153e8B78a5C5337036D35f54")
+    dispatcher = HDispatcher.at("0x4775D2B1A3f582b3153e8B78a5C5337036D35f54")
     log("dispatcher address", str(dispatcher.address))
 
-    aggr = HTokenAggregator("0x890c899cd0812F54F33269A41eFA6c041Da35cf3")
+    aggr = HTokenAggregator.at("0x890c899cd0812F54F33269A41eFA6c041Da35cf3")
     log("aggr address", str(aggr.address))
 
     tx = gatekeeper_factory.createGateKeeperForPeriod(
@@ -197,7 +198,7 @@ def horizon_mkdt(env, stream_token, stream):
         },
     )
 
-    aggr_tlist = TrustList("0x00c4528C1e8e84d4C57A203573Ef07eE63aDd59A")
+    aggr_tlist = TrustList.at("0x00c4528C1e8e84d4C57A203573Ef07eE63aDd59A")
     aggr_tlist.add_trusted(
         gatekeeper.address,
         {
