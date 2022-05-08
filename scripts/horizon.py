@@ -1,8 +1,21 @@
 #!/usr/bin/python3
-from brownie import (ERC20Base, HDispatcher, HEnv, HEnvFactory, HGateKeeper,
-                     HGateKeeperFactory, HPeriod, HPeriodFactory, HToken,
-                     HTokenAggregator, HTokenFactory, SafeMath, TrustList,
-                     accounts, xRookStream)
+from brownie import (
+    ERC20Base,
+    HDispatcher,
+    HEnv,
+    HEnvFactory,
+    HGateKeeper,
+    HGateKeeperFactory,
+    HPeriod,
+    HPeriodFactory,
+    HToken,
+    HTokenAggregator,
+    HTokenFactory,
+    SafeMath,
+    TrustList,
+    accounts,
+    xRookStream,
+)
 
 gas_strategy = "40 gwei"
 
@@ -256,3 +269,4 @@ def main():
     env, stream_token, stream = env_xrook(xrook_stream())
     gatekeeper = horizon_mkdt(env, stream_token, stream)
     deposit(gatekeeper)
+    gatekeeper.start({"from": accounts[-1]})
