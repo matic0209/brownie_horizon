@@ -18,6 +18,7 @@ def log(text, desc=""):
 def xrook_stream():
     account = accounts[-1]
     SafeMath.at("0x071108Ad85d7a766B41E0f5e5195537A8FC8E74D")
+
     stream = xRookStream.deploy(
         {
             "from": account,
